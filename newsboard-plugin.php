@@ -6,6 +6,7 @@
     Version: 1.0 
     Author: NewsBoard Plugin 
     Author URI: http://newsboardplugin.com 
+    License: GPL2
 */
 /*
     Copyright 2013 NewsBoard Plugin (email : office@newsboardplugin.com)
