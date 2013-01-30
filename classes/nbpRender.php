@@ -538,10 +538,10 @@ background-image: -ms-linear-gradient(270deg, #222 0%, #888 1px, #6C6C6C 1px, #6
     {
         $buttons = '';
         if($this->tA['show_arrows'] != false)
-            $buttons = "<div id=\"btn_up\"></div><div id=\"btn_down\"></div>";
+            $buttons = "<div id=\"btn_up\" style=\"background-image: url(" . $this->tA['plugin_dir'] . "render/img/arrows.png)\"></div><div id=\"btn_down\" style=\"background-image: url(" . $this->tA['plugin_dir'] . "render/img/arrows.png)\"></div>";
             
         $this->tA['render_content'] .= "</div></div>
-                <div class=\"bar\"><a href=\"http://newsboardplugin.com\" target=\"_blank\"><div id=\"nbp_logo\"></div></a>
+                <div class=\"bar\"><a href=\"http://newsboardplugin.com\" target=\"_blank\"><div id=\"nbp_logo\" style=\"background-image: url(" . $this->tA['plugin_dir'] . "images/logo.png)\"></div></a>
                     <ul>
                         <li style=\"width: 100% !important;\">
                             <div class=\"nbp_nav\">
