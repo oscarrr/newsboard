@@ -1,5 +1,5 @@
 === NewsBoard ===
-Contributors: NewsBoard
+Contributors: NewsBoard Plugin
 Donate link:http://newsboardplugin.com
 Tags: post ticker, rss ticker, news ticker, news board
 Requires at least: 3.3
