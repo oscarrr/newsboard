@@ -30,7 +30,7 @@ $nbpVal(document).ready(function () {
             else
                 data.command = 'getElements';
             var dataString = JSON.stringify(data);
-            $nbpVal.post(options.pluginDir + 'newsboard-plugin-constants.php', {data: dataString}, function (response) {
+            $nbpVal.post(options.pluginDir + 'newsboard-constants.php', {data: dataString}, function (response) {
                 obj = jQuery.parseJSON(response);
             });
             

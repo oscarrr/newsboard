@@ -5,7 +5,7 @@ $ov = json_decode($_POST['data'], true);
 //post appearance options to JavaScript
 if($ov['command'] == 'jsOverride')
 {
-    require_once '../newsboard-plugin-constants.php';
+    require_once '../newsboard-constants.php';
     require_once '../default-settings.php';
     require_once 'nbpAppearance.php';  
      

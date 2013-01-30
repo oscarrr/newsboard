@@ -62,7 +62,7 @@ class nbpInit extends nbpCore
      */
     public function filterTinymcePlugin($plugin_array) 
     {
-        $news_board_path_mce = trailingslashit(rtrim(WP_PLUGIN_URL, '/') . '/newsboard-plugin');
+        $news_board_path_mce = trailingslashit(rtrim(WP_PLUGIN_URL, '/') . '/newsboard');
         $plugin_array['contextmenu'] = $news_board_path_mce . 'mce/contextmenu/editor_plugin.js';
         $plugin_array['NewsBoard'] = $news_board_path_mce . '/js/editor_plugin.js';
         return $plugin_array;
@@ -85,9 +85,9 @@ class nbpInit extends nbpCore
     {
         wp_enqueue_script( 'jquery-ui-core' );
         wp_enqueue_script( 'jquery-effects-core' );
-        wp_enqueue_script( 'nbpAnimate-js', plugin_dir_url("newsboard-plugin") . "newsboard-plugin/js/nbpAnimate.js", array('jquery'), 'free' );
+        wp_enqueue_script( 'nbpAnimate-js', plugin_dir_url("newsboard") . "newsboard/js/nbpAnimate.js", array('jquery'), 'free' );
         
-        wp_enqueue_style( "NewsBoardPlugin", plugin_dir_url("newsboard-plugin") . "newsboard-plugin/render/newsboard-plugin.css", false, 'free' );
+        wp_enqueue_style( "NewsBoardPlugin", plugin_dir_url("newsboard") . "newsboard/render/newsboard.css", false, 'free' );
     }
     
     /**

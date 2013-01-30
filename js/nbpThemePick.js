@@ -21,7 +21,7 @@ $nbpTh=jQuery.noConflict();
                     obj = jQuery.parseJSON(response);
                     
                     
-                    $nbpTh.get(options.plugin_dir + 'admin/newsboard-plugin-appearance.tpl', function(data){
+                    $nbpTh.get(options.plugin_dir + 'admin/newsboard-appearance.tpl', function(data){
                         for(var index in obj) 
                         {
                             var re = new RegExp("{" + index + "}","gi");

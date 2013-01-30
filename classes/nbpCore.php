@@ -185,13 +185,13 @@ class nbpCore
     {
         $render = new nbpTemplate();
         $render->assign($this->render->tA);
-        $renderCSS = $render->displayINRender($this->pluginPathFull . "render/newsboard-plugin-render-css.tpl");
+        $renderCSS = $render->displayINRender($this->pluginPathFull . "render/newsboard-render-css.tpl");
         if(!is_writable($this->pluginPathFull . "render"))
             chmod($this->pluginPathFull . "render", 0777);
-        $error_check = file_put_contents($this->pluginPathFull . "render/newsboard-plugin.css" , utf8_encode($renderCSS));
+        $error_check = file_put_contents($this->pluginPathFull . "render/newsboard.css" , utf8_encode($renderCSS));
         if($error_check == false)
         {
-            $msg = " The CSS File is not refreshed, probably because of folder or file permission issue. Please change the folder: 'render' and the file: 'newsboard-plugin.css' permission for writing!";
+            $msg = " The CSS File is not refreshed, probably because of folder or file permission issue. Please change the folder: 'render' and the file: 'newsboard.css' permission for writing!";
             $this->changeMsgMain .= $msg;
             $this->changeMsgApp .= $msg;            
         }
@@ -239,13 +239,13 @@ class nbpCore
         $this->pluginSlug = $plugin_slug;
         list ($t1, $t2) = explode('/', $plugin_slug);
         $this->slug = str_replace('.php', '', $t2);
-        $this->pluginFolderName = "newsboard-plugin";
+        $this->pluginFolderName = "newsboard";
         $this->pluginPath = plugin_dir_url($this->pluginFolderName) . $this->pluginFolderName . "/";
         $this->pluginPathFull = WP_PLUGIN_DIR . "/" . $this->pluginFolderName . "/";
         $this->uploadsDir = wp_upload_dir();
-        $this->pluginOptName = 'newsboard-plugin-settings';
-        $this->mainOptName = "newsboard-plugin-main";
-        $this->themeOptName = "newsboard-plugin-appearance";
+        $this->pluginOptName = 'newsboard-settings';
+        $this->mainOptName = "newsboard-main";
+        $this->themeOptName = "newsboard-appearance";
         $this->menuName = "NewsBoard";
         $this->mainName = "Settings";
         $this->themesName = "Themes";
@@ -332,7 +332,7 @@ class nbpCore
         
         $tpl_main = new nbpTemplate();
         $tpl_main->assign($this->main->nbp_options_main + array('go_pro_image' => '<a href="http://newsboardplugin.com/support/faq/#how-to-go-pro" target="_blank"><img src="' . $this->pluginPath . 'images/go_pro.png" class="go_pro_image"/></a>'));
-        $tpl_main->display($this->pluginPathFull . "admin/newsboard-plugin-main.tpl");
+        $tpl_main->display($this->pluginPathFull . "admin/newsboard-main.tpl");
         echo '</div>';
     }
     
@@ -348,8 +348,8 @@ class nbpCore
         $tpl_themes = new nbpTemplate();
         $tpl_appearance = new nbpTemplate();
         $tpl_appearance->assign($this->app->nbp_options_appearance);
-        $tpl_themes->assign($this->app->slider_html + array('appearance_settings' => $tpl_appearance->display_in($this->pluginPathFull . "admin/newsboard-plugin-appearance.tpl"), "custom_snapshot" => "<img src=\"" .$this->pluginPath . "images/custom.png\"/>"));
-        $tpl_themes->display($this->pluginPathFull . "admin/newsboard-plugin-themes.tpl");
+        $tpl_themes->assign($this->app->slider_html + array('appearance_settings' => $tpl_appearance->display_in($this->pluginPathFull . "admin/newsboard-appearance.tpl"), "custom_snapshot" => "<img src=\"" .$this->pluginPath . "images/custom.png\"/>"));
+        $tpl_themes->display($this->pluginPathFull . "admin/newsboard-themes.tpl");
         echo '</div>';
     }
     
@@ -361,7 +361,7 @@ class nbpCore
     {
         $render = new nbpTemplate();
         $render->assign($this->render->tA);
-        $output = $render->displayINRender($this->pluginPathFull . "render/newsboard-plugin-render.tpl");
+        $output = $render->displayINRender($this->pluginPathFull . "render/newsboard-render.tpl");
         return $output;
     }
     
@@ -408,7 +408,7 @@ class nbpCore
         }
         
         $tpl_upgrade->assign(array('license_key' => $this->upgrade->getElements('license_key'), 'license_key_class' => $licenseFieldClass, 'license_mode' => $licenseModeMsg, 'license_mode_link' => $licenseModeLink));
-        $tpl_upgrade->display($this->pluginPathFull . "admin/newsboard-plugin-upgrade.tpl");
+        $tpl_upgrade->display($this->pluginPathFull . "admin/newsboard-upgrade.tpl");
         
         echo '</div>';
     }
@@ -421,7 +421,7 @@ class nbpCore
         $render = new nbpTemplate();
         $render->assign($this->render->tA);
         $renderCSS = "<style type=\"text/css\">";
-        $renderCSS .= $render->displayINRender($this->pluginPathFull . "render/newsboard-plugin-render-css.tpl");
+        $renderCSS .= $render->displayINRender($this->pluginPathFull . "render/newsboard-render-css.tpl");
         print $renderCSS . "</style>";
     }
     
