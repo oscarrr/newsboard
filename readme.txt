@@ -4,7 +4,7 @@ Donate link:http://newsboardplugin.com
 Tags: post ticker, rss ticker, news ticker, news board
 Requires at least: 3.3
 Tested up to: 3.5.1
-Stable tag: trunk
+Stable tag: no
 
 Posts and RSS ticker.
 
