@@ -1,6 +1,6 @@
 <?php
 /** 
-    Plugin Name: NewsBoard Plugin FREE
+    Plugin Name: NewsBoard FREE
     Plugin URI: http://newsboardplugin.com 
     Description: Posts and RSS ticker.
     Version: 1.0 
