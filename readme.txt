@@ -36,7 +36,6 @@ NewsBoard takes advantage of CSS3 properties like border-radius, text-shadow and
 
 Users will get the full visual version of NewsBoard in the following browsers: 
 
-Unordered list:
 
 * Chrome 10.0+
 * Firefox 3.6+
