@@ -36,10 +36,11 @@ By using the shortcode you can place NewsBoard anywhere in the theme you like.
 7. After the plugin is installed successfully press "Activate Plugin"
 8. NewsBoard is now installed!
 
+For more help please visit our [Get Started Page](http://newsboardplugin.com/getstarted/ "NewsBoard Get Started Page").
 
 == Screenshots ==
 
-1.Settings Page
+1. Settings Page
 
 
 == Browser Compatibility ==
