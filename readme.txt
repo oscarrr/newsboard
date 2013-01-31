@@ -38,13 +38,13 @@ Users will get the full visual version of NewsBoard in the following browsers:
 
 Unordered list:
 
-*Chrome 10.0+
-*Firefox 3.6+
-*safari 5.1+
-*Opera 11.6+
-*IE 10+
-*iOS 5.0+
-*Android 4.0+
-*Blackberry 10+
+* Chrome 10.0+
+* Firefox 3.6+
+* safari 5.1+
+* Opera 11.6+
+* IE 10+
+* iOS 5.0+
+* Android 4.0+
+* Blackberry 10+
 
 Lower versions and some other browsers might support some or none of the CSS3 properties. That means they will display visually simplified version if the plugin. 
