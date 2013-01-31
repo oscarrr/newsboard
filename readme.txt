@@ -1,4 +1,4 @@
-=== NewsBoard ===
+﻿=== NewsBoard ===
 Contributors: NewsBoard Plugin
 Donate link:http://newsboardplugin.com
 Tags: post ticker, rss ticker, news ticker, news board
@@ -24,8 +24,18 @@ Use the dedicated button in Visual Editor for embedding NewsBoard in your posts.
 Embed it in the theme  
 By using the shortcode you can place NewsBoard anywhere in the theme you like.
 
- 
 
 == Installation ==
 
 Download the zip file and extract it to wp-content/plugins/ on your WordPress installation
+
+
+== Compatibility ==
+
+NewsBoard takes advantage of CSS3 properties like border-radius, text-shadow and gradients. Modern browsers support all of them. 
+
+Users will get the full visual version of NewsBoard in the following browsers: 
+
+screenshot-compatibility.png
+
+Lower versions and some other browsers might support some or none of the CSS3 properties. That means they will display visually simplified version if the plugin. 
