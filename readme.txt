@@ -41,7 +41,7 @@ For more help please visit our [Get Started Page](http://newsboardplugin.com/get
 == Screenshots ==
 
 1. Settings Page
-2. Appearance Pgae
+2. Appearance Page
 3. Pre-publishing Previw Page
 
 == Browser Compatibility ==
