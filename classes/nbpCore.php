@@ -141,6 +141,8 @@ class nbpCore
                                         $changeMsgKey_ = 'Error: ' . implode('<br/>Error: ', $unzipped->get_error_messages());
                                     else
                                         $changeMsgKey_ = 'Error: Unzipping filed.';
+                                        
+                                        activate_plugins($pluginFile);
                                 }
                             }else{
                                 $changeMsgKey_ = 'Error: ' . implode('<br/>Error: ', $temp_file->get_error_messages());
