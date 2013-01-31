@@ -12,14 +12,14 @@ Posts and RSS ticker.
 
 NewsBoard is a highly customizable WordPress plugin that displays your posts or rss feed from other sites in a nice ticker. You can easily set width, height, colors, rollover colors, date format, thumbnail sizes, fonts, transitions, speed and much more.
 
-Prepublishing Review  
-Make NewsBoard visible on your website once you have customized it the way you like.
-
 Works on all modern browsers  
 NewsBoard Plugin takes advantage of CSS3 features like border radius, gradients and text shadow, which are supported by all modern browsers. But those who don\'t, get visually simplified version.
 
 Easy integration in posts  
 Use the dedicated button in Visual Editor for embedding NewsBoard in your posts. Only two clicks away!
+
+Prepublishing Review  
+Make NewsBoard visible on your website once you have customized it the way you like.
 
 Embed it in the theme  
 By using the shortcode you can place NewsBoard anywhere in the theme you like.
@@ -27,10 +27,23 @@ By using the shortcode you can place NewsBoard anywhere in the theme you like.
 
 == Installation ==
 
-Download the zip file and extract it to wp-content/plugins/ on your WordPress installation
+1. Download the zip file
+2. Login to your WordPress admin panel and go to Plugins/Add New
+3. Click on "Upload" tab
+4. Click on "Choose File" buttom and select the zip file you just downloaded
+5. Click "Open"
+6. Press "Install Now" button
+7. After the plugin is installed successfully press "Activate Plugin"
+8. NewsBoard is now installed!
 
 
-== Compatibility ==
+== Screenshots ==
+
+1.Settings Page
+
+
+== Browser Compatibility ==
+
 
 NewsBoard takes advantage of CSS3 properties like border-radius, text-shadow and gradients. Modern browsers support all of them. 
 
