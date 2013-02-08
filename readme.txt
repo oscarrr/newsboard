@@ -24,6 +24,8 @@ Make NewsBoard visible on your website once you have customized it the way you l
 Embed it in the theme  
 By using the shortcode you can place NewsBoard anywhere in the theme you like.
 
+View [Live demo](http://newsboardplugin.com "NewsBoard Ticker in Action").
+
 
 == Installation ==
 
