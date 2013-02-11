@@ -28,7 +28,6 @@ require_once WP_PLUGIN_DIR . '/newsboard/newsboard-constants.php';
 require_once WP_PLUGIN_DIR . '/newsboard/default-settings.php';
 require_once WP_PLUGIN_DIR . '/newsboard/classes/nbpWidget.php';
 require_once WP_PLUGIN_DIR . '/newsboard/classes/nbpCore.php';
-require_once WP_PLUGIN_DIR . '/newsboard/classes/nbpAutoUpdate.php';
 require_once WP_PLUGIN_DIR . '/newsboard/classes/nbpInit.php';
 
 $plugin_basename = plugin_basename(__FILE__);
