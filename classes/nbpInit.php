@@ -21,7 +21,6 @@ class nbpInit extends nbpCore
         parent::__construct($plugin_basename);
         add_filter('plugin_action_links_' . $plugin_basename, array($this, 'addSettingsLink')); 
         add_action('init', array($this, 'registerTinymce'));
-        add_action('init', array($this, 'checkUpdate'));
         add_action('admin_menu', array($this, 'adminInit'));
         add_action('wp_enqueue_scripts', array($this, 'RenderCssJs')); 
         add_action('wp_head', array($this, 'wpHead'));

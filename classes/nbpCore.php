@@ -58,14 +58,6 @@ class nbpCore
     }
     
     /**
-     * Check for Update by creating new instance of AutoUpdate class
-     */
-    public function checkUpdate()
-    {
-        new nbpAutoupdate($this->getPluginVer(), $this->checkAutoUpdPath, $this->pluginSlug, 'license_key');
-    }
-    
-    /**
      * Creates instances of the classes, which construct admin menu, and checks for posted elements
      */
     public function init()
