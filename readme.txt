@@ -4,13 +4,13 @@ Donate link:http://newsboardplugin.com
 Tags: post ticker, rss ticker, news ticker, news board
 Requires at least: 3.3
 Tested up to: 3.5.1
-Stable tag: trunk
+Stable tag: 1.0
 
 Posts and RSS ticker.
 
 == Description ==
 
-NewsBoard is a highly customizable WordPress plugin that displays your posts or rss feed from other sites in a nice ticker. You can easily set width, height, colors, rollover colors, date format, thumbnail sizes, fonts, transitions, speed and much more.
+NewsBoard is a highly customizable jQuery News Ticker that displays your posts or rss feed from other sites in a nice ticker. You can easily set width, height, colors, rollover colors, date format, thumbnail sizes, fonts, transitions, speed and much more.
 
 Works on all modern browsers  
 NewsBoard Plugin takes advantage of CSS3 features like border radius, gradients and text shadow, which are supported by all modern browsers. But those who don\'t, get visually simplified version.
