@@ -1,19 +1,19 @@
 ﻿=== NewsBoard ===
 Contributors: NewsBoard Plugin Team
 Donate link:http://newsboardplugin.com
-Tags: post ticker, rss ticker, news ticker, news board
+Tags: post ticker, rss ticker, jquery news ticker 
 Requires at least: 3.3
 Tested up to: 3.5.1
-Stable tag: 1.0
+Stable tag: 1.0.1
 
-Posts and RSS ticker.
+jQuery News Ticker.
 
 == Description ==
 
-NewsBoard is a highly customizable jQuery News Ticker that displays your posts or rss feed from other sites in a nice ticker. You can easily set width, height, colors, rollover colors, date format, thumbnail sizes, fonts, transitions, speed and much more.
+NewsBoard is a highly customizable jQuery News Ticker that displays your posts or rss feed from other sites. You can easily set width, height, colors, rollover colors, date format, thumbnail sizes, fonts, transitions, speed and much more.
 
 Works on all modern browsers  
-NewsBoard Plugin takes advantage of CSS3 features like border radius, gradients and text shadow, which are supported by all modern browsers. But those who don\'t, get visually simplified version.
+NewsBoard takes advantage of CSS3 features like border radius, gradients and text shadow, which are supported by all modern browsers. But those who don\'t, get visually simplified version.
 
 Easy integration in posts  
 Use the dedicated button in Visual Editor for embedding NewsBoard in your posts. Only two clicks away!
@@ -23,8 +23,6 @@ Make NewsBoard visible on your website once you have customized it the way you l
 
 Embed it in the theme  
 By using the shortcode you can place NewsBoard anywhere in the theme you like.
-
-View [Live demo](http://newsboardplugin.com "NewsBoard Ticker in Action").
 
 
 == Installation ==
@@ -48,7 +46,6 @@ For more help please visit our [Get Started Page](http://newsboardplugin.com/get
 
 == Browser Compatibility ==
 
-
 NewsBoard takes advantage of CSS3 properties like border-radius, text-shadow and gradients. Modern browsers support all of them. 
 
 Users will get the full visual version of NewsBoard in the following browsers: 
@@ -63,4 +60,14 @@ Users will get the full visual version of NewsBoard in the following browsers:
 * Android 4.0+
 * Blackberry 10+
 
-Lower versions and some other browsers might support some or none of the CSS3 properties. That means they will display visually simplified version if the plugin. 
+Lower versions and some other browsers might support some or none of the CSS3 properties. That means they will display visually simplified version if the plugin.
+
+== Changelog ==
+
+= 1.0.1 =
+* Fixed RSS feed fetching bug.
+
+= 1.0 =
+* Initial release.
+
+

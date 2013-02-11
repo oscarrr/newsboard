@@ -2,8 +2,8 @@
 /** 
     Plugin Name: NewsBoard FREE
     Plugin URI: http://newsboardplugin.com 
-    Description: Posts and RSS ticker.
-    Version: 1.0 
+    Description: jQuery News Ticker.
+    Version: 1.0.1 
     Author: NewsBoard Plugin 
     Author URI: http://newsboardplugin.com 
 */

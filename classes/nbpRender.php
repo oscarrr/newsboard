@@ -361,54 +361,78 @@ background-image: -ms-linear-gradient(270deg, #222 0%, #888 1px, #6C6C6C 1px, #6
     }
     
     /**
+    * Finds image sorce in text. 
+    * @param String $text - The text
+    * @param String $encoding - The encoding
+    * @return String - The image source
+    */
+    private function findImageInText($text, $encoding)
+    {
+        $text = html_entity_decode($text, ENT_QUOTES, $encoding);
+        $pattern = "/<img[^>]+\>/iu";
+        preg_match($pattern, $text, $matches);
+        $link = '';
+        
+        if(count($matches) > 0)
+        {
+            $pattern1 = '/src=[\'"]?([^\'" >]+)[\'" >]/';     
+            preg_match($pattern1, $matches[0], $link);
+            $link = $link[1];
+            $link = urldecode($link);
+        }
+        
+        return $link;
+    }
+    
+    /**
      * RSS Parser. 
      */
     private function rssParse()
     {
         error_reporting(0);
         $articles = array();
-        $rawFeed = file_get_contents($this->tA['rss_link']);
-        $xml = simplexml_load_string($rawFeed);
-        if($xml===FALSE) 
+        
+        //set caching to 10 minutes
+        add_filter( 'wp_feed_cache_transient_lifetime', create_function('$a', 'return 600;') );
+        $feed = fetch_feed($this->tA['rss_link']);
+        
+        if(is_wp_error($feed)) 
         {
             $articles = array();
-            $this->tA['error_handle'] = "<div class=\"newsboard_plugin_error_handle\">NewsBoard: We encountered a problem with the RSS Feed! Please check your RSS Feed Link!</div>";
+            $this->tA['error_handle'] = "<div class=\"newsboard_plugin_error_handle_" . $this->tA['nbp_item'] . "\">There is a problem fetching the RSS!</div>";
         } 
         else 
         {
-            foreach ($xml->channel->item as $item)
-            {
+            $encoding = $feed->get_encoding();
+            $maxitems = $feed->get_item_quantity($this->tA['number_of_news']);
+            
+            $rss_items = $feed->get_items(0, $maxitems);
+            
+            foreach($rss_items as $item)
+            {	
                 $article = array();
+                $img = '';
                 
-                $title = (string) trim($item->title);
-                $desc = (string) trim($item->description);
-                $link = (string) trim($item->link);
-                $perm = (string) trim($item->guid['isPermaLink']);
-                $date = (string) trim($item->pubDate);
-                $img = (string) trim($item->img);
+                $title = (string) trim($item->get_title());
+                $desc = (string) trim($item->get_description());
+                $link = (string) trim($item->get_link());
+                $perm = (string) trim($item->get_permalink());
+                $date = (string) trim($item->get_date());
+                $enclosure = $item->get_enclosure();
+                $thumbs = $enclosure->get_thumbnails();
                 
-                if($img == "" || $item->enclosure['type'] == 'image/jpeg' || $item->enclosure['type'] == 'image/jpg' || $item->enclosure['type'] == 'image/gif' || $item->enclosure['type'] == 'image/png')
-                    $img = (string) trim($item->enclosure['url']);
-                
-                if($img == "")
+                if($enclosure->get_type() == 'image/jpeg' || $enclosure->get_type() == 'image/jpg' || $enclosure->get_type() == 'image/gif' || $enclosure->get_type() == 'image/png')
+                    $img = (string) trim($enclosure->get_link());
+                elseif(is_array($thumbs) && count($thumbs) > 0)
                 {
-                    $mediaImg = $item->xpath ('media:thumbnail');
-                    foreach ($mediaImg as $mi) 
-                    {
-                        if($mi['type'] == 'image/jpeg' || $mi['type'] == 'image/jpg' || $mi['type'] == 'image/gif' || $mi['type'] == 'image/png')
-                            $img = (string) trim($mi['url']);
-                    }
+                    $img = end($thumbs);
                 }
-                
-                if($img == "")
+                //Finds image in the content but slows down page load so it will be considered in future releases
+                /*else
                 {
-                    $mediaImg = $item->xpath ('media:content');
-                    foreach ($mediaImg as $mi) 
-                    {
-                        if($mi['type'] == 'image/jpeg' || $mi['type'] == 'image/jpg' || $mi['type'] == 'image/gif' || $mi['type'] == 'image/png')
-                            $img = (string) trim($mi['url']);
-                    }
-                }
+                    $content = trim($item->get_content());
+                    $img = $this->findImageInText($content, $encoding);
+                }*/
                 
                 $itemRSS = array ( 
                   'title' => $title,
@@ -528,7 +552,8 @@ background-image: -ms-linear-gradient(270deg, #222 0%, #888 1px, #6C6C6C 1px, #6
                 $this->tA['render_content'] .= $contentTemp[$j];
             $this->tA['render_content'] = $invisibleUp . $this->tA['render_content'] . $invisibleDown;
         }
-        $this->makeBar();
+        if(count($arrFeeds) > 0)
+            $this->makeBar();
     }
     
     /**
@@ -541,7 +566,7 @@ background-image: -ms-linear-gradient(270deg, #222 0%, #888 1px, #6C6C6C 1px, #6
             $buttons = "<div id=\"btn_up\" style=\"background-image: url(" . $this->tA['plugin_dir'] . "render/img/arrows.png)\"></div><div id=\"btn_down\" style=\"background-image: url(" . $this->tA['plugin_dir'] . "render/img/arrows.png)\"></div>";
             
         $this->tA['render_content'] .= "</div></div>
-                <div class=\"bar\"><a href=\"http://newsboardplugin.com\" target=\"_blank\" title=\"NewsBoard - jQuery News Ticker for Wordpress\"><div id=\"nbp_logo\" style=\"background-image: url(" . $this->tA['plugin_dir'] . "images/logo.png)\"></div></a>
+                <div class=\"bar\"><a href=\"http://newsboardplugin.com/jquery-news-ticker-for-wordpress/\" target=\"_blank\" title=\"NewsBoard - jQuery News Ticker for Wordpress\"><div id=\"nbp_logo\" style=\"background-image: url(" . $this->tA['plugin_dir'] . "images/logo.png)\"></div></a>
                     <ul>
                         <li style=\"width: 100% !important;\">
                             <div class=\"nbp_nav\">
