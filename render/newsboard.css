@@ -333,13 +333,16 @@ background-image: -ms-linear-gradient(270deg, #222 0%, #888 1px, #6C6C6C 1px, #6
     opacity: 1;
 }
 #newsboard_plugin_holder .bar #btn_up {
+    background-image: url(http://lab.newsboardplugin.com/3.5/wp-content/plugins/newsboard/render/img/arrows.png);
 }
 #newsboard_plugin_holder .bar #btn_down {
+    background-image: url(http://lab.newsboardplugin.com/3.5/wp-content/plugins/newsboard/render/img/arrows.png);
     background-position: 0 -14px;
 }
 #newsboard_plugin_holder .bar #nbp_logo {
     width: 17px;
     height: 16px;
+    background-image: url(http://lab.newsboardplugin.com/3.5/wp-content/plugins/newsboard/images/logo.png);
     position: absolute;
     margin-top: 3px;
     margin-left: 8px;

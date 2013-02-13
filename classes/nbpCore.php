@@ -124,7 +124,7 @@ class nbpCore
                                     unlink($zip_file);
                                      
                                     //activate the plugin
-                                    activate_plugins($pluginFile); 
+                                    activate_plugins($this->pluginFolderName . '-pro/' . $this->pluginFolderName . '-pro.php'); 
                                     
                                     wp_redirect(admin_url() . 'admin.php?page=nbpCore.php');
                                     exit;
@@ -165,7 +165,7 @@ class nbpCore
         }
             
         $this->main->getElements();
-        $this->render = new nbpRender($this->app->nbp_options_appearance + $this->main->nbp_options_main, $this->pluginPath);
+        $this->render = new nbpRender($this->app->nbp_options_appearance + $this->main->nbp_options_main, $this->pluginPath, $this->getPluginVer());
         $this->render->doTheMagic();
         
         if($this->flag_app_update == 1 || $this->flag_main_update == 1)

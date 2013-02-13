@@ -38,6 +38,7 @@ class nbpAppearance
             $this->nbp_options_appearance[$key] = stripslashes(htmlspecialchars_decode($value));
         $this->adjustCheckboxes();
         $this->adjustRadioboxes();
+        $this->nbp_options_appearance['custom_snaphot'] = "<img src=\"" .$this->plugin_dir . "images/custom.png\"/>";
         if($this->nbp_options_appearance['theme_select'] == "Default" && $this->nbp_options_appearance['theme_select'] != "")
             $this->getDefaultTheme();
         
@@ -103,6 +104,7 @@ class nbpAppearance
     {
         global $default_app;
         $this->nbp_options_appearance = $default_app;
+        $this->nbp_options_appearance['custom_snapshot'] = "<img src=\"" .$this->plugin_dir . "images/custom.png\"/>";
         $this->adjustCheckboxes();
         $this->adjustRadioboxes();
     }
@@ -114,7 +116,7 @@ class nbpAppearance
         
         $this->slider_html['admin_left_arrow'] = $this->plugin_dir . 'images/admin_left_arrow.png';
         $this->slider_html['admin_right_arrow'] = $this->plugin_dir . 'images/admin_right_arrow.png';
-        
+        $this->nbp_options_appearance['custom_snapshot'] = "<img src=\"" .$this->plugin_dir . "images/custom.png\"/>";
         
         if($this->nbp_options_appearance['theme_select'] == 'Default')
         {

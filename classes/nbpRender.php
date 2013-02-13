@@ -16,7 +16,7 @@ class nbpRender
      * @param Array $db_array - All values from the DB (/custom/ themes and settings)
      * @param String $plugin_dir - Plugin dir
      */
-    public function __construct($db_array, $plugin_dir)
+    public function __construct($db_array, $plugin_dir, $currentVersion)
     {
         $this->tA = $db_array;
         $this->tA['plugin_dir'] = $plugin_dir;
@@ -24,6 +24,7 @@ class nbpRender
         $this->tA['error_handle'] = "";
         $this->tA['show_arrows'] = true;  
         $this->tA['number_of_news'] = 10;
+        $this->tA['nbp_version'] = $currentVersion;
     }
     
     /**

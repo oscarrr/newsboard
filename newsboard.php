@@ -3,7 +3,7 @@
     Plugin Name: NewsBoard FREE
     Plugin URI: http://newsboardplugin.com 
     Description: jQuery News Ticker.
-    Version: 1.0.1 
+    Version: 1.0.3 
     Author: NewsBoard Plugin 
     Author URI: http://newsboardplugin.com 
 */
