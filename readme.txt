@@ -26,6 +26,10 @@ By using the shortcode you can place NewsBoard anywhere in the theme you like.
 
 View [Live Demo](http://newsboardplugin.com/jquery-news-ticker-for-wordpress/ "Live Demo of NewsBoard - jQuery News Ticker for Wordpress").
 
+Follow us on [Twitter](https://twitter.com/NewsBoardPlugin "Follow NewsBoard on Twitter")
+
+Find us on [Facebook](http://www.facebook.com/pages/NewsBoard-Plugin/333348490093559 "Find NewsBoard on Facebook")
+
 == Installation ==
 
 1. Download the zip file
