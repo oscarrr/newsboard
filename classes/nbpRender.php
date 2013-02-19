@@ -242,9 +242,9 @@ background-image: -ms-linear-gradient(270deg, #222 0%, #888 1px, #6C6C6C 1px, #6
                 if(is_callable('has_post_thumbnail') && has_post_thumbnail($post->ID) && $this->tA['show_thumbnails'] == 'checked="checked"')
                 {
                     $image_path = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), array($this->tA['thumbnail_width'],$this->tA['thumbnail_height']));
-                    $imagesize = getimagesize($image_path[0]);
-                    $changedImgSize = $this->resizeThumb($imagesize[0], $imagesize[1], $this->tA['thumbnail_width'], $this->tA['thumbnail_height']);
+                    $changedImgSize = $this->resizeThumb($image_path[1], $image_path[2], $this->tA['thumbnail_width'], $this->tA['thumbnail_height']);
                     $image_url = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), array($changedImgSize[0],$changedImgSize[1]));
+                       
                     if($this->tA['image_border_on'] == 'checked="checked"')
                         $flag_border = 1;
                     else
@@ -331,6 +331,7 @@ background-image: -ms-linear-gradient(270deg, #222 0%, #888 1px, #6C6C6C 1px, #6
             endforeach;
         }
         $this->tA['actual_news_number'] = $count_iter; 
+        $this->tA['invisible_news_top'] = 0;
         if($this->tA['board_news_fit'] >= $this->tA['actual_news_number'])
         {
             $this->tA['board_news_fit'] = $this->tA['actual_news_number'];
@@ -345,13 +346,17 @@ background-image: -ms-linear-gradient(270deg, #222 0%, #888 1px, #6C6C6C 1px, #6
                 $invisibleUp = $contentTemp[$count_iter-2] . $contentTemp[$count_iter-1];
                 $invisibleDown = $contentTemp[0] . $contentTemp[1];
                 $this->tA['invisible_news'] = 4;
+                $this->tA['invisible_news_top'] = 2;
             }
             else
             {
                 for($k=0; $k<intval($count_iter/2); $k++)
                     $invisibleDown .= $contentTemp[$k];
                 for($k=intval($count_iter/2); $k<$count_iter; $k++)
+                {
                     $invisibleUp .= $contentTemp[$k];
+                    $this->tA['invisible_news_top']++;
+                } 
                 $this->tA['invisible_news'] = $count_iter;
             }
             for($i=0; $i<$count_iter; $i++)
@@ -526,6 +531,7 @@ background-image: -ms-linear-gradient(270deg, #222 0%, #888 1px, #6C6C6C 1px, #6
                 </div>";
         }       
         $this->tA['actual_news_number'] = $i;
+        $this->tA['invisible_news_top'] = 0;
         if($this->tA['board_news_fit'] >= $this->tA['actual_news_number'])
         {
             $this->tA['board_news_fit'] = $this->tA['actual_news_number'];
@@ -540,14 +546,18 @@ background-image: -ms-linear-gradient(270deg, #222 0%, #888 1px, #6C6C6C 1px, #6
                 $invisibleUp = $contentTemp[$i-2] . $contentTemp[$i-1];
                 $invisibleDown = $contentTemp[0] . $contentTemp[1];
                 $this->tA['invisible_news'] = 4;
+                $this->tA['invisible_news_top'] = 2;
             }
             else
             {
                 for($k=0; $k<intval($i/2); $k++)
                     $invisibleDown .= $contentTemp[$k];
                 for($k=intval($i/2); $k<$i; $k++)
+                {
                     $invisibleUp .= $contentTemp[$k];
-                    $this->tA['invisible_news'] = $i;
+                    $this->tA['invisible_news_top']++;
+                }
+                $this->tA['invisible_news'] = $i;
             }
             for($j=0; $j<$i; $j++)
                 $this->tA['render_content'] .= $contentTemp[$j];

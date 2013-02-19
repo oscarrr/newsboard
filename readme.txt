@@ -4,7 +4,7 @@ Donate link:http://newsboardplugin.com
 Tags: post ticker, rss ticker, jquery news ticker 
 Requires at least: 3.3
 Tested up to: 3.5.1
-Stable tag: 1.0.3
+Stable tag: 1.0.34
 
 jQuery News Ticker.
 
@@ -64,6 +64,10 @@ Users will get the full visual version of NewsBoard in the following browsers:
 Lower versions and some other browsers might support some or none of the CSS3 properties. That means they will display visually simplified version if the plugin.
 
 == Changelog ==
+
+= 1.0.34 =
+* Fixed thumbnail bug.
+* Fixed ordering bug.
 
 = 1.0.3 =
 * Fixed upgrading bug.

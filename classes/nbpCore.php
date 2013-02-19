@@ -265,7 +265,7 @@ class nbpCore
     {
         $sign = '$nbp';
         $this->init();
-        $output .= "$sign('#newsboard_plugin_holder').nbpAnimate({speed: " . $this->render->tA['transition_time'] . ", stay: " . $this->render->tA['scroll_period'] . ", margin_bottom: " . $this->render->tA['margin_bottom_holder'] . ", max_news: " . $this->render->tA['number_of_news'] . ", board_fit: " . $this->render->tA['board_news_fit'] . "});\n";
+        $output .= "$sign('#newsboard_plugin_holder').nbpAnimate({speed: " . $this->render->tA['transition_time'] . ", stay: " . $this->render->tA['scroll_period'] . ", margin_bottom: " . $this->render->tA['margin_bottom_holder'] . ", max_news: " . $this->render->tA['number_of_news'] . ", board_fit: " . $this->render->tA['board_news_fit'] . ", invisible_news_top: " . $this->render->tA['invisible_news_top'] . "});\n";
         print 
         "\n<script type=\"text/javascript\">
             $sign=jQuery.noConflict();
@@ -437,7 +437,7 @@ class nbpCore
             
             $sign(document).ready(function () {
                 " . $error_handle . "
-                $sign('#newsboard_plugin_holder').nbpAnimate({speed: " . $this->render->tA['transition_time'] . ", stay: " . $this->render->tA['scroll_period'] . ", margin_bottom: " . $this->render->tA['margin_bottom_holder'] . ", max_news: " . $this->render->tA['number_of_news'] . ", board_fit: " . $this->render->tA['board_news_fit'] . "});
+                $sign('#newsboard_plugin_holder').nbpAnimate({speed: " . $this->render->tA['transition_time'] . ", stay: " . $this->render->tA['scroll_period'] . ", margin_bottom: " . $this->render->tA['margin_bottom_holder'] . ", max_news: " . $this->render->tA['number_of_news'] . ", board_fit: " . $this->render->tA['board_news_fit'] . ", invisible_news_top: " . $this->render->tA['invisible_news_top'] . "});
             });
         </script>"; 
     }

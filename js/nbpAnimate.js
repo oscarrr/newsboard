@@ -15,7 +15,8 @@
                 
                 h = parseFloat($nbp('.nbp_slider .new_holder:eq(0)', mSel).outerHeight())+settings.margin_bottom;
                 if(settings.max_news>settings.board_fit)
-                    $nbp('.nbp_slider', mSel).css('top', '-' + 2*h + 'px');
+                    $nbp('.nbp_slider', mSel).css('top', '-' + settings.invisible_news_top*h + 'px');
+                
                 $nbp('.bar #btn_up', mSel).bind('click', function(){scrollUp()});
                 $nbp('.bar #btn_down', mSel).bind('click', function(){scrollDown()});
                 
@@ -65,7 +66,7 @@
                             
                             isScrolling = false;
                             interval = setTimeout(scrollDown, settings.stay);
-                            $nbp('.nbp_slider', mSel).css('top', '-' + 2*h + 'px');
+                            $nbp('.nbp_slider', mSel).css('top', '-' + settings.invisible_news_top*h + 'px');
                         });
                     }
                 }
@@ -83,7 +84,7 @@
                             $nbp('.nbp_slider .new_holder', mSel).last().remove();
                             isScrolling = false;
                             interval = setTimeout(scrollDown, settings.stay);
-                            $nbp('.nbp_slider', mSel).css('top', '-' + 2*h + 'px');
+                            $nbp('.nbp_slider', mSel).css('top', '-' + settings.invisible_news_top*h + 'px');
                         });
                     }
                 }
