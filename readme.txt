@@ -28,7 +28,7 @@ View [Live Demo](http://newsboardplugin.com/jquery-news-ticker-for-wordpress/ "L
 
 Follow us on [Twitter](https://twitter.com/NewsBoardPlugin "Follow NewsBoard on Twitter")
 
-Find us on [Facebook](http://www.facebook.com/pages/NewsBoard-Plugin/333348490093559 "Find NewsBoard on Facebook")
+Find us on [Facebook](http://www.facebook.com/pages/NewsBoard-Plugin/333348490093559 "Find NewsBoard on Facebook") too keep updated on new features.
 
 == Installation ==
 
