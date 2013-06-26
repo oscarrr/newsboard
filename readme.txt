@@ -6,7 +6,7 @@ Requires at least: 3.3
 Tested up to: 3.5.1
 Stable tag: 1.0.34
 
-jQuery News Ticker.
+News and RSS Scroller.
 
 == Description ==
 
