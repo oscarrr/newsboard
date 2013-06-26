@@ -1,7 +1,7 @@
 ﻿=== NewsBoard ===
 Contributors: NewsBoard Plugin Team
 Donate link:http://newsboardplugin.com
-Tags: post ticker, rss ticker, jquery news ticker 
+Tags: news slider, rss reader, carosel 
 Requires at least: 3.3
 Tested up to: 3.5.1
 Stable tag: 1.0.34
@@ -24,7 +24,7 @@ Make NewsBoard visible on your website once you have customized it the way you l
 Embed it in the theme  
 By using the shortcode you can place NewsBoard anywhere in the theme you like.
 
-View [Live Demo](http://newsboardplugin.com/jquery-news-ticker-for-wordpress/ "Live Demo of NewsBoard - jQuery News Ticker for Wordpress") | View the [Youtube video](http://www.youtube.com/watch?feature=player_embedded&v=EcCQ3eWS3-Y "Youtube plugin video") | Follow us on [Twitter](https://twitter.com/NewsBoardPlugin "Follow NewsBoard on Twitter") | Find us on [Facebook](http://www.facebook.com/pages/NewsBoard-Plugin/333348490093559 "Find NewsBoard on Facebook") too keep updated on new features.
+View [Live Demo](http://newsboardplugin.com/jquery-news-ticker-for-wordpress/ "Live Demo of NewsBoard - jQuery News Ticker for Wordpress") | Watch the [Youtube video](http://www.youtube.com/watch?feature=player_embedded&v=EcCQ3eWS3-Y "Youtube plugin video") | Follow us on [Twitter](https://twitter.com/NewsBoardPlugin "Follow NewsBoard on Twitter") | Find us on [Facebook](http://www.facebook.com/pages/NewsBoard-Plugin/333348490093559 "Find NewsBoard on Facebook") too keep updated on new features.
 
 == Installation ==
 
