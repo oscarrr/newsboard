@@ -1,7 +1,7 @@
 ﻿=== NewsBoard ===
 Contributors: NewsBoard Plugin Team
 Donate link:http://newsboardplugin.com
-Tags: post ticker, rss ticker, jquery news ticker 
+Tags: news slider, rss reader, news ticker, latest posts
 Requires at least: 3.3
 Tested up to: 3.5.1
 Stable tag: 1.0.34
