@@ -4,7 +4,7 @@ Donate link:http://newsboardplugin.com
 Tags: news slider, rss reader, news ticker, latest posts
 Requires at least: 3.3
 Tested up to: 3.5.2
-Stable tag: 1.0.34
+Stable tag: 1.0.60
 
 News and RSS Scroller.
 
