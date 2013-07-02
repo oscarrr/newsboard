@@ -1,10 +1,10 @@
 ﻿=== NewsBoard ===
 Contributors: NewsBoard Plugin Team
 Donate link:http://newsboardplugin.com
-Tags: news slider, rss reader, carosel 
+Tags: news slider, rss reader, news ticker, latest posts
 Requires at least: 3.3
-Tested up to: 3.5.1
-Stable tag: 1.0.34
+Tested up to: 3.5.2
+Stable tag: 1.0.60
 
 News and RSS Scroller.
 
@@ -24,7 +24,7 @@ Make NewsBoard visible on your website once you have customized it the way you l
 Embed it in the theme  
 By using the shortcode you can place NewsBoard anywhere in the theme you like.
 
-View [Live Demo](http://newsboardplugin.com/jquery-news-ticker-for-wordpress/ "Live Demo of NewsBoard - jQuery News Ticker for Wordpress") | Watch the [Youtube video](http://www.youtube.com/watch?feature=player_embedded&v=EcCQ3eWS3-Y "Youtube plugin video") | Follow us on [Twitter](https://twitter.com/NewsBoardPlugin "Follow NewsBoard on Twitter") | Find us on [Facebook](http://www.facebook.com/pages/NewsBoard-Plugin/333348490093559 "Find NewsBoard on Facebook") too keep updated on new features.
+View [Live Demo](http://newsboardplugin.com/jquery-news-ticker-for-wordpress/ "Live Demo of NewsBoard - jQuery News Ticker for Wordpress") | Watch the [Youtube video](http://www.youtube.com/watch?feature=player_embedded&v=EcCQ3eWS3-Y "Youtube plugin video") | Follow us on [Twitter](https://twitter.com/NewsBoardPlugin "Follow NewsBoard on Twitter") | Find us on [Facebook](http://www.facebook.com/pages/NewsBoard-Plugin/333348490093559 "Find NewsBoard on Facebook") to keep updated about new features.
 
 == Installation ==
 
@@ -64,6 +64,9 @@ Users will get the full visual version of NewsBoard in the following browsers:
 Lower versions and some other browsers might support some or none of the CSS3 properties. That means they will display visually simplified version if the plugin.
 
 == Changelog ==
+
+= 1.0.60 =
+* Fixed shortcode bug.
 
 = 1.0.34 =
 * Fixed thumbnail bug.
