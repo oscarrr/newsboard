@@ -1,7 +1,7 @@
 ﻿=== NewsBoard ===
 Contributors: NewsBoard Plugin Team
 Donate link:http://newsboardplugin.com
-Tags: news slider, rss reader, news ticker, latest posts
+Tags: news slider, rss reader, news ticker, latest posts, jquery post scroller, news scroller, rss feed, rss, news reader, javascript scroller, most commented posts, top commented posts, multiple scrollers, most commented posts, last updated posts, updated posts, rss fetcher, rss news scroller, customizable scroller, themed scroller, image scroller, news with thumbnail scroller, autoscroll, news autoscroll, rss autoscroll
 Requires at least: 3.3
 Tested up to: 3.5.2
 Stable tag: 1.0.60
@@ -9,6 +9,8 @@ Stable tag: 1.0.60
 News and RSS Scroller.
 
 == Description ==
+
+View [Live Demo](http://newsboardplugin.com/jquery-news-ticker-for-wordpress/ "Live Demo of NewsBoard - jQuery News Ticker for Wordpress") | Watch the [Youtube video](http://www.youtube.com/watch?feature=player_embedded&v=EcCQ3eWS3-Y "Youtube plugin video") | Follow us on [Twitter](https://twitter.com/NewsBoardPlugin "Follow NewsBoard on Twitter") | Find us on [Facebook](http://www.facebook.com/pages/NewsBoard-Plugin/333348490093559 "Find NewsBoard on Facebook")
 
 NewsBoard is a highly customizable jQuery News Ticker that displays your posts or rss feed from other sites. You can easily set width, height, colors, rollover colors, date format, thumbnail sizes, fonts, transitions, speed and much more.
 
@@ -23,8 +25,6 @@ Make NewsBoard visible on your website once you have customized it the way you l
 
 Embed it in the theme  
 By using the shortcode you can place NewsBoard anywhere in the theme you like.
-
-View [Live Demo](http://newsboardplugin.com/jquery-news-ticker-for-wordpress/ "Live Demo of NewsBoard - jQuery News Ticker for Wordpress") | Watch the [Youtube video](http://www.youtube.com/watch?feature=player_embedded&v=EcCQ3eWS3-Y "Youtube plugin video") | Follow us on [Twitter](https://twitter.com/NewsBoardPlugin "Follow NewsBoard on Twitter") | Find us on [Facebook](http://www.facebook.com/pages/NewsBoard-Plugin/333348490093559 "Find NewsBoard on Facebook") to keep updated about new features.
 
 == Installation ==
 
