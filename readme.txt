@@ -4,7 +4,7 @@ Donate link:http://newsboardplugin.com
 Tags: news slider, rss reader, news ticker, latest posts, jquery post scroller, news scroller, rss feed, rss, news reader, javascript scroller, most commented posts, top commented posts, multiple scrollers, most commented posts, last updated posts, updated posts, rss fetcher, rss news scroller, customizable scroller, themed scroller, image scroller, news with thumbnail scroller, autoscroll, news autoscroll, rss autoscroll
 Requires at least: 3.3
 Tested up to: 3.5.2
-Stable tag: 1.0.65
+Stable tag: 1.0.66
 
 News and RSS Scroller.
 
@@ -64,6 +64,12 @@ Users will get the full visual version of NewsBoard in the following browsers:
 Lower versions and some other browsers might support some or none of the CSS3 properties. That means they will display visually simplified version if the plugin.
 
 == Changelog ==
+
+= 1.0.66 =
+* Fixed jQuery conflicts.
+
+= 1.0.65 =
+* Fixed css bug.
 
 = 1.0.60 =
 * Fixed shortcode bug.
