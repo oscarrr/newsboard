@@ -1,7 +1,7 @@
 ﻿=== NewsBoard ===
 Contributors: NewsBoard Plugin Team
 Donate link:http://newsboardplugin.com
-Tags: news slider, rss reader, news ticker, latest posts, jquery post scroller, news scroller, rss feed, rss, news reader, javascript scroller, most commented posts, top commented posts, multiple scrollers, most commented posts, last updated posts, updated posts, rss fetcher, rss news scroller, customizable scroller, themed scroller, image scroller, news with thumbnail scroller, autoscroll, news autoscroll, rss autoscroll
+Tags: news slider, rss reader, news ticker, latest posts, jquery post scroller, news scroller, rss feed, rss, news reader, javascript scroller, most commented posts, top commented posts, multiple scrollers, most commented posts, last updated posts, updated posts, rss fetcher, rss news scroller, customizable scroller, themed scroller, image scroller, news with thumbnail scroller, autoscroll, news autoscroll, rss autoscroll, flexible rss reader, flexible news ticker, customizable news autoscroller
 Requires at least: 3.3
 Tested up to: 3.5.2
 Stable tag: 1.0.66
