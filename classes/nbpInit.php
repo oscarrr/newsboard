@@ -82,9 +82,15 @@ class nbpInit extends nbpCore
      */
     public function renderCssJs()
     {
-        wp_enqueue_script( 'jquery-ui-core' );
-        wp_enqueue_script( 'jquery-effects-core' );
-        wp_enqueue_script( 'nbpAnimate-js', plugin_dir_url("newsboard") . "newsboard/js/nbpAnimate.js", array('jquery', 'jquery-ui-core', 'jquery-effects-core'), 'free' );
+        wp_register_script( 'newsboard-jquery', $GLOBALS['wp_scripts']->registered['jquery']->src );
+        wp_register_script( 'newsboard-jquery-ui-core', $GLOBALS['wp_scripts']->registered['jquery-ui-core']->src, array('newsboard-jquery') );
+        wp_register_script( 'newsboard-jquery-effects-core', $GLOBALS['wp_scripts']->registered['jquery-effects-core']->src, array('newsboard-jquery') );
+        
+        wp_enqueue_script( 'newsboard-jquery' );
+        wp_enqueue_script( 'newsboard-jquery-ui-core' );
+        wp_enqueue_script( 'newsboard-jquery-effects-core' );
+        wp_enqueue_script( 'nbpFrontEnd-js', plugin_dir_url("newsboard") . "newsboard/js/nbpFrontEnd.js", array('newsboard-jquery', 'newsboard-jquery-ui-core', 'newsboard-jquery-effects-core') );
+        wp_enqueue_script( 'nbpAnimate-js', plugin_dir_url("newsboard") . "newsboard/js/nbpAnimate.js", array('newsboard-jquery', 'newsboard-jquery-ui-core', 'newsboard-jquery-effects-core', 'nbpFrontEnd-js') );
         
         wp_enqueue_style( "NewsBoardPlugin", plugin_dir_url("newsboard") . "newsboard/render/newsboard.css", false, 'free' );
     }

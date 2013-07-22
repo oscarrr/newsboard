@@ -268,8 +268,6 @@ class nbpCore
         $output .= "$sign('#newsboard_plugin_holder').nbpAnimate({speed: " . $this->render->tA['transition_time'] . ", stay: " . $this->render->tA['scroll_period'] . ", margin_bottom: " . $this->render->tA['margin_bottom_holder'] . ", max_news: " . $this->render->tA['number_of_news'] . ", board_fit: " . $this->render->tA['board_news_fit'] . ", invisible_news_top: " . $this->render->tA['invisible_news_top'] . "});\n";
         print 
         "\n<script type=\"text/javascript\">
-            $sign=jQuery.noConflict();
-            
             $sign(document).ready(function () {
                 " . $output . "
             });
@@ -433,8 +431,6 @@ class nbpCore
             $error_handle = "";
         print 
         "\n<script type=\"text/javascript\">
-            $sign=jQuery.noConflict();
-            
             $sign(document).ready(function () {
                 " . $error_handle . "
                 $sign('#newsboard_plugin_holder').nbpAnimate({speed: " . $this->render->tA['transition_time'] . ", stay: " . $this->render->tA['scroll_period'] . ", margin_bottom: " . $this->render->tA['margin_bottom_holder'] . ", max_news: " . $this->render->tA['number_of_news'] . ", board_fit: " . $this->render->tA['board_news_fit'] . ", invisible_news_top: " . $this->render->tA['invisible_news_top'] . "});
@@ -456,8 +452,6 @@ class nbpCore
             $error_handle = "";
         print 
         "\n<script type=\"text/javascript\">
-            $sign=jQuery.noConflict();
-            
             $sign(document).ready(function () {
                 " . $error_handle . "
                 $sign('.nbp_settings_holder .theme_picker').nbpThemePick({plugin_dir: '" . $this->pluginPath . "', theme_width: " . $this->app->slider_html['TP_theme_width'] . ", speed: " . $this->app->slider_html['TP_transition_time'] . ", hiddenThemes: " . $this->app->slider_html['TP_hidden_themes'] . "});
@@ -480,8 +474,6 @@ class nbpCore
             $error_handle = "";
         print 
         "\n<script type=\"text/javascript\">
-            $sign=jQuery.noConflict();
-            
             $sign(document).ready(function () {
                 " . $error_handle . "
                 $sign('.nbp_settings_holder input:text').nbpValidate({pluginDir:'" . $this->pluginPath . "', curr_el:'.nbp_settings_holder input:text'});
@@ -503,8 +495,6 @@ class nbpCore
             $error_handle = "";
         print 
         "\n<script type=\"text/javascript\">
-            $sign=jQuery.noConflict();
-            
             $sign(document).ready(function () {
                 " . $error_handle . "
                 $sign('#nbp_items_holder input:text').nbpValidate({pluginDir:'" . $this->pluginPath . "', curr_el:'#nbp_items_holder input:text'});
@@ -520,8 +510,9 @@ class nbpCore
     {
         wp_enqueue_script( 'jquery-ui-core' );
         wp_enqueue_script( 'jquery-effects-core' );
-        wp_enqueue_script( 'nbpMsg-js', $this->pluginPath . "js/nbpMsg.js", array('jquery', 'jquery-ui-core', 'jquery-effects-core'), 'free' );
-        wp_enqueue_script( 'nbpAnimate-js', $this->pluginPath . "js/nbpAnimate.js", array('jquery', 'jquery-ui-core', 'jquery-effects-core'), 'free' );
+        wp_enqueue_script( 'nbpBackEnd-js', $this->pluginPath . "js/nbpBackEnd.js", array('jquery', 'jquery-ui-core', 'jquery-effects-core') );
+        wp_enqueue_script( 'nbpMsg-js', $this->pluginPath . "js/nbpMsg.js", array('jquery', 'jquery-ui-core', 'jquery-effects-core', 'nbpBackEnd-js') );
+        wp_enqueue_script( 'nbpAnimate-js', $this->pluginPath . "js/nbpAnimate.js", array('jquery', 'jquery-ui-core', 'jquery-effects-core', 'nbpBackEnd-js') );
     }
     
     /**
@@ -537,8 +528,9 @@ class nbpCore
         wp_enqueue_style( 'nbp-admin-css', $this->pluginPath . "admin/style/admin.css", false, 'free' );    
         wp_enqueue_script( 'jquery-ui-core' );
         wp_enqueue_script( 'jquery-effects-core' );
-        wp_enqueue_script( 'nbpMsg-js', $this->pluginPath . "js/nbpMsg.js", array('jquery', 'jquery-ui-core', 'jquery-effects-core'), 'free' );
-        wp_enqueue_script( 'nbpAnimate-js', $this->pluginPath . "js/nbpAnimate.js", array('jquery', 'jquery-ui-core', 'jquery-effects-core'), 'free' );
+        wp_enqueue_script( 'nbpBackEnd-js', $this->pluginPath . "js/nbpBackEnd.js", array('jquery', 'jquery-ui-core', 'jquery-effects-core') );
+        wp_enqueue_script( 'nbpMsg-js', $this->pluginPath . "js/nbpMsg.js", array('jquery', 'jquery-ui-core', 'jquery-effects-core', 'nbpBackEnd-js') );
+        wp_enqueue_script( 'nbpAnimate-js', $this->pluginPath . "js/nbpAnimate.js", array('jquery', 'jquery-ui-core', 'jquery-effects-core', 'nbpBackEnd-js') );
     }
     
     /**
@@ -556,9 +548,10 @@ class nbpCore
         wp_enqueue_script( 'jquery-ui-core' );
         wp_enqueue_script( 'jquery-effects-core' );
         wp_enqueue_script( 'farbtastic' );
-        wp_enqueue_script( 'nbpMsg-js', $this->pluginPath . "js/nbpMsg.js", array('jquery', 'jquery-ui-core', 'jquery-effects-core', 'farbtastic'), 'free' );
-        wp_enqueue_script( 'nbpValidate-js', $this->pluginPath . "js/nbpValidate.js", array('jquery', 'jquery-ui-core', 'jquery-effects-core', 'farbtastic'), 'free' );
-        wp_enqueue_script( 'nbpThemePick-js', $this->pluginPath . "js/nbpThemePick.js", array('jquery', 'jquery-ui-core', 'jquery-effects-core', 'farbtastic'), 'free' );
+        wp_enqueue_script( 'nbpBackEnd-js', $this->pluginPath . "js/nbpBackEnd.js", array('jquery', 'jquery-ui-core', 'jquery-effects-core', 'farbtastic') );
+        wp_enqueue_script( 'nbpMsg-js', $this->pluginPath . "js/nbpMsg.js", array('jquery', 'jquery-ui-core', 'jquery-effects-core', 'farbtastic', 'nbpBackEnd-js') );
+        wp_enqueue_script( 'nbpValidate-js', $this->pluginPath . "js/nbpValidate.js", array('jquery', 'jquery-ui-core', 'jquery-effects-core', 'farbtastic', 'nbpBackEnd-js') );
+        wp_enqueue_script( 'nbpThemePick-js', $this->pluginPath . "js/nbpThemePick.js", array('jquery', 'jquery-ui-core', 'jquery-effects-core', 'farbtastic','nbpBackEnd-js') );
     }
     
     /**
@@ -574,8 +567,9 @@ class nbpCore
         wp_enqueue_style( 'nbp-admin-css', $this->pluginPath . "admin/style/admin.css", false, 'free' );
         wp_enqueue_script( 'jquery-ui-core' );
         wp_enqueue_script( 'jquery-effects-core' );
-        wp_enqueue_script( 'nbpMsg-js', $this->pluginPath . "js/nbpMsg.js", array('jquery', 'jquery-ui-core', 'jquery-effects-core'), 'free' );
-        wp_enqueue_script( 'nbpValidate-js', $this->pluginPath . "js/nbpValidate.js", array('jquery', 'jquery-ui-core', 'jquery-effects-core'), 'free' );
+        wp_enqueue_script( 'nbpBackEnd-js', $this->pluginPath . "js/nbpBackEnd.js", array('jquery', 'jquery-ui-core', 'jquery-effects-core', 'farbtastic') );
+        wp_enqueue_script( 'nbpMsg-js', $this->pluginPath . "js/nbpMsg.js", array('jquery', 'jquery-ui-core', 'jquery-effects-core', 'nbpBackEnd-js') );
+        wp_enqueue_script( 'nbpValidate-js', $this->pluginPath . "js/nbpValidate.js", array('jquery', 'jquery-ui-core', 'jquery-effects-core','nbpBackEnd-js') );
     }
     
     /**
@@ -603,8 +597,9 @@ class nbpCore
         wp_enqueue_style( 'nbp-admin-css', $this->pluginPath . "admin/style/admin.css", false, 'free' );
         wp_enqueue_script( 'jquery-ui-core' );
         wp_enqueue_script( 'jquery-effects-core' );
-        wp_enqueue_script( 'nbpMsg-js', $this->pluginPath . "js/nbpMsg.js", array('jquery', 'jquery-ui-core', 'jquery-effects-core'), 'free' );
-        wp_enqueue_script( 'nbpValidate-js', $this->pluginPath . "js/nbpValidate.js", array('jquery', 'jquery-ui-core', 'jquery-effects-core'), 'free' );
+        wp_enqueue_script( 'nbpBackEnd-js', $this->pluginPath . "js/nbpBackEnd.js", array('jquery', 'jquery-ui-core', 'jquery-effects-core', 'farbtastic') );
+        wp_enqueue_script( 'nbpMsg-js', $this->pluginPath . "js/nbpMsg.js", array('jquery', 'jquery-ui-core', 'jquery-effects-core', 'nbpBackEnd-js') );
+        wp_enqueue_script( 'nbpValidate-js', $this->pluginPath . "js/nbpValidate.js", array('jquery', 'jquery-ui-core', 'jquery-effects-core', 'nbpBackEnd-js') );
     }
     
     /**

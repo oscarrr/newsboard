@@ -1,12 +1,9 @@
-$nbpMsg=jQuery.noConflict();    
-
-    
-jQuery.fn.nbpMsg = function(stay, text, plugin_dir)
+$nbp.fn.nbpMsg = function(stay, text, plugin_dir)
 {
     var isOpen = false;
     
-    $nbpMsg('#nbp_wrap').append('<div class="nbp_pre_holder"><div class="nbp_pre_bgCover"><div class="nbp_pre_overlayBox" align="center"><div class="nbp_pre_loader"></div><div class="nbp_pre_text">' + text + '</div></div></div></div>');
-    $nbpMsg('.nbp_pre_loader').css({
+    $nbp('#nbp_wrap').append('<div class="nbp_pre_holder"><div class="nbp_pre_bgCover"><div class="nbp_pre_overlayBox" align="center"><div class="nbp_pre_loader"></div><div class="nbp_pre_text">' + text + '</div></div></div></div>');
+    $nbp('.nbp_pre_loader').css({
         'background-image':'url(' + plugin_dir + 'images/loader.gif)'
     });
     doOverlayOpen(stay);
@@ -15,30 +12,30 @@ jQuery.fn.nbpMsg = function(stay, text, plugin_dir)
     {
     	if( isOpen == false ) return;
     	
-        $nbpMsg('.nbp_pre_overlayBox').css({
+        $nbp('.nbp_pre_overlayBox').css({
   		    display:'block'
    	    });
     	
-        $nbpMsg('.nbp_pre_bgCover').css({
+        $nbp('.nbp_pre_bgCover').css({
   		    display:'block',
-    		width: $nbpMsg('#nbp_wrap').width(),
-    		height: $nbpMsg('#wpbody').height()
+    		width: $nbp('#nbp_wrap').width(),
+    		height: $nbp('#wpbody').height()
    	    });
     }
     function doOverlayOpen(stay) 
     {
     	isOpen = true;
     	showoverlayBox();
-    	//$nbpMsg('.nbp_pre_bgCover').css({opacity:0}).animate( {opacity:1} );
+    	//$nbp('.nbp_pre_bgCover').css({opacity:0}).animate( {opacity:1} );
         setTimeout(doOverlayClose, stay);
         return false;
     }
     function doOverlayClose() 
     {
     	isOpen = false;
-        $nbpMsg('.nbp_pre_holder').remove();
+        $nbp('.nbp_pre_holder').remove();
     }
-    $nbpMsg('#nbp_wrap').bind('resize',showoverlayBox);   
+    $nbp('#nbp_wrap').bind('resize',showoverlayBox);   
     
 }
 

@@ -1,48 +1,48 @@
-$nbpTh=jQuery.noConflict();
+$nbp=jQuery.noConflict();
 
-(function ($nbpTh) {
-    $nbpTh.fn.extend({
+(function ($nbp) {
+    $nbp.fn.extend({
         nbpThemePick: function (options) {
-            $nbpTh('.theme .theme_lable .override_default').bind('click', function(){
-                var filename = $nbpTh(this).attr('id');
+            $nbp('.theme .theme_lable .override_default').bind('click', function(){
+                var filename = $nbp(this).attr('id');
                 var obj;
                 var data = new Object();
                 var loader = 800;
-                $nbpTh('.theme .theme_lable input').each(function(){
-                    $nbpTh(this).attr('checked', false);
+                $nbp('.theme .theme_lable input').each(function(){
+                    $nbp(this).attr('checked', false);
                 });
                 
-                $nbpTh('.custom .custom_lable input').attr('checked', true);
+                $nbp('.custom .custom_lable input').attr('checked', true);
                 
                 data.command = 'jsOverride';
                 data.plugin_dir = options.plugin_dir;
                 var dataString = JSON.stringify(data);
-                $nbpTh.post(options.plugin_dir + 'classes/nbpJsOverride.php', {data: dataString}, function (response) {
-                    obj = jQuery.parseJSON(response);
+                $nbp.post(options.plugin_dir + 'classes/nbpJsOverride.php', {data: dataString}, function (response) {
+                    obj = $nbp.parseJSON(response);
                     
                     
-                    $nbpTh.get(options.plugin_dir + 'admin/newsboard-appearance.tpl', function(data){
+                    $nbp.get(options.plugin_dir + 'admin/newsboard-appearance.tpl', function(data){
                         for(var index in obj) 
                         {
                             var re = new RegExp("{" + index + "}","gi");
                             data = data.replace( re, obj['' + index + ''] );
                         }
-                        $nbpTh(this).nbpMsg(loader, 'Please wait...', options.plugin_dir);
+                        $nbp(this).nbpMsg(loader, 'Please wait...', options.plugin_dir);
                         setTimeout(function(){
-                            $nbpTh('.nbp_settings_holder .appearance_settings').html(data);
+                            $nbp('.nbp_settings_holder .appearance_settings').html(data);
                         }, loader);
 p                    });
                     
                 });
             });
             
-            $nbpTh('.nbp_settings_holder .theme_picker .left_arrow img').bind('click', function(){
-                $nbpTh(this).queue(function(){
+            $nbp('.nbp_settings_holder .theme_picker .left_arrow img').bind('click', function(){
+                $nbp(this).queue(function(){
                     changeTheme(defSign('+'));
                 });
             });
-            $nbpTh('.nbp_settings_holder .theme_picker .right_arrow img').bind('click', function(){
-                $nbpTh(this).queue(function(){
+            $nbp('.nbp_settings_holder .theme_picker .right_arrow img').bind('click', function(){
+                $nbp(this).queue(function(){
                     changeTheme(defSign('-'));
                 });
                 
@@ -51,9 +51,9 @@ p                    });
             function changeTheme(direction)
             {
                 if(direction!='error')
-                    $nbpTh('.nbp_settings_holder .theme_slider').animate({ left: direction+'=' +options.theme_width }, options.speed, 'easeOutQuad', function(){
-                        $nbpTh('.nbp_settings_holder .theme_picker .right_arrow img').clearQueue();
-                        $nbpTh('.nbp_settings_holder .theme_picker .left_arrow img').clearQueue();
+                    $nbp('.nbp_settings_holder .theme_slider').animate({ left: direction+'=' +options.theme_width }, options.speed, 'easeOutQuad', function(){
+                        $nbp('.nbp_settings_holder .theme_picker .right_arrow img').clearQueue();
+                        $nbp('.nbp_settings_holder .theme_picker .left_arrow img').clearQueue();
                     });
             }
             
@@ -84,9 +84,9 @@ p                    });
     
         }
     });
-})(jQuery);
+})($nbp);
 
-jQuery.fn.cssNumber = function(prop){
+$nbp.fn.cssNumber = function(prop){
     var v = parseInt(this.css(prop),10);
     return isNaN(v) ? 0 : v;
 };
