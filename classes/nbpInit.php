@@ -82,7 +82,11 @@ class nbpInit extends nbpCore
      */
     public function renderCssJs()
     {
-        wp_register_script( 'newsboard-jquery', $GLOBALS['wp_scripts']->registered['jquery']->src );
+        global $wp_version;
+        
+        $jquery_src = version_compare('3.6', $wp_version) ? $GLOBALS['wp_scripts']->registered['jquery']->src : $GLOBALS['wp_scripts']->registered['jquery-core']->src;
+        
+        wp_register_script( 'newsboard-jquery', $jquery_src );
         wp_register_script( 'newsboard-jquery-ui-core', $GLOBALS['wp_scripts']->registered['jquery-ui-core']->src, array('newsboard-jquery') );
         wp_register_script( 'newsboard-jquery-effects-core', $GLOBALS['wp_scripts']->registered['jquery-effects-core']->src, array('newsboard-jquery') );
         
