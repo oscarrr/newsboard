@@ -65,7 +65,7 @@ Lower versions and some other browsers might support some or none of the CSS3 pr
 
 == Changelog ==
 
-= 1.0.66 =
+= 1.0.70 =
 * Fixed thumbnail issue.
 
 = 1.0.66 =
