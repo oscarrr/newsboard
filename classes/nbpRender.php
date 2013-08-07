@@ -425,9 +425,9 @@ background-image: -ms-linear-gradient(270deg, #222 0%, #888 1px, #6C6C6C 1px, #6
                 $perm = (string) trim($item->get_permalink());
                 $date = (string) trim($item->get_date());
                 $enclosure = $item->get_enclosure();
-                $thumbs = $enclosure->get_thumbnails();
+                $thumbs = is_object($enclosure) ? $enclosure->get_thumbnails() : null;
                 
-                if($enclosure->get_type() == 'image/jpeg' || $enclosure->get_type() == 'image/jpg' || $enclosure->get_type() == 'image/gif' || $enclosure->get_type() == 'image/png')
+                if(is_object($enclosure) == true && ($enclosure->get_type() == 'image/jpeg' || $enclosure->get_type() == 'image/jpg' || $enclosure->get_type() == 'image/gif' || $enclosure->get_type() == 'image/png'))
                     $img = (string) trim($enclosure->get_link());
                 elseif(is_array($thumbs) && count($thumbs) > 0)
                 {
