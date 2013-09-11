@@ -609,7 +609,7 @@ class nbpCore
     public function widgetShortcodeInit()
     {
         $this->init();
-        echo $this->renderView();     
+        return $this->renderView();     
     } 
     
 }

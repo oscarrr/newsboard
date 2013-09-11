@@ -1,6 +1,11 @@
 <?php
-error_reporting(0); 
-$ov = json_decode($_POST['data'], true);
+error_reporting(0);
+
+$data = $_POST['data'];
+if(get_magic_quotes_gpc() === 1)
+    $data = stripslashes($_POST['data']);
+
+$ov = json_decode($data, true);
 
 //post appearance options to JavaScript
 if($ov['command'] == 'jsOverride')
