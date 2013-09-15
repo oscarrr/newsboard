@@ -229,9 +229,25 @@ background-image: -ms-linear-gradient(270deg, #222 0%, #888 1px, #6C6C6C 1px, #6
      */
     private function createContent()
     {   
+        global $wpdb;
         $count_iter = 0;
-        $args = array('numberposts' => $this->tA['number_of_news'], 'category'  => implode(',', $this->tA['pickcategories']), 'post_status'  => 'publish', 'orderby' => $this->tA['order_type'], 'order' => $this->tA['order']);
+        
+        $terms = $wpdb->get_results( $wpdb->prepare( "SELECT GROUP_CONCAT( t.term_id SEPARATOR ',' ) as ids, tt.taxonomy FROM $wpdb->terms AS t INNER JOIN $wpdb->term_taxonomy AS tt ON t.term_id = tt.term_id WHERE t.term_id IN (" . implode(',', $this->tA['pickcategories'])) . ") GROUP BY tt.taxonomy" );
+		$tax_query = array('relation' => 'OR');
+        
+        foreach ( $terms as $term )
+        {
+            array_push( $tax_query, array(
+        			'taxonomy' => $term->taxonomy,
+        			'field' => 'id',
+        			'terms' => explode(',', $term->ids)
+        		));
+        }
+        
+        $args = array('numberposts' => $this->tA['number_of_news'], 'tax_query' => $tax_query, 'post_status'  => 'publish', 'orderby' => $this->tA['order_type'], 'order' => $this->tA['order'], 'post_type' => get_post_types());
+        
         $lastposts = get_posts($args);
+        
         if($lastposts == null)
             $this->tA['error_handle'] = "<div class=\"newsboard_plugin_error_handle\">NewsBoard: No News available!</div>";
         else

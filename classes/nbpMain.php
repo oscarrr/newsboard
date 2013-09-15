@@ -116,7 +116,8 @@ class nbpMain
      */
     private function getCategoriesList($id, $h)
     {
-        $categories = get_categories( array('hide_empty'=> 0, 'parent'=> $id) );
+        $categories = get_categories( array('hide_empty' => 0, 'parent' => $id, 'taxonomy' => get_taxonomies()) );
+        
         $pre = '';
         for($i = $h; $i > 0; $i--)
             $pre .= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
