@@ -416,6 +416,10 @@ background-image: -ms-linear-gradient(270deg, #222 0%, #888 1px, #6C6C6C 1px, #6
         
         //set caching to 10 minutes
         add_filter( 'wp_feed_cache_transient_lifetime', create_function('$a', 'return 600;') );
+        
+        if ( strpos($this->tA['rss_link'], 'http://') !== 0 && strpos($this->tA['rss_link'], 'https://') !== 0 )
+            $this->tA['rss_link'] = 'http://' . $this->tA['rss_link'];
+        
         $feed = fetch_feed($this->tA['rss_link']);
         
         if(is_wp_error($feed)) 

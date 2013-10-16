@@ -3,7 +3,7 @@
     Plugin Name: NewsBoard FREE
     Plugin URI: http://newsboardplugin.com 
     Description: News And RSS Scroller.
-    Version: 1.1
+    Version: 1.1.1
     Author: NewsBoard Plugin 
     Author URI: http://newsboardplugin.com 
 */
