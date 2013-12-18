@@ -43,7 +43,7 @@ class nbpWidget extends WP_Widget
         if (!empty($title))
           echo $before_title . $title . $after_title;
         
-        $this->nbp_app->widgetShortcodeInit();
+        echo $this->nbp_app->widgetShortcodeInit();
         echo $after_widget;
     }
 }
