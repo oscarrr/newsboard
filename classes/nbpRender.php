@@ -324,21 +324,19 @@ background-image: -ms-linear-gradient(270deg, #222 0%, #888 1px, #6C6C6C 1px, #6
                 }
                 
                 $contentTemp[$count_iter] = 
-                "<a href=\"" . get_permalink($post->ID) . "\"" . ($this->tA['open_links_in'] == "blank" ? " target=\"_blank\"" : "") . ">
-                    <div class=\"new_holder\">
-                        <table class=\"new_table\">
-                            <tr>
-                                " . $image . "
-                                <td class=\"content\" " . $content_style . ">
-                                    <div class=\"content_holder\">
-                                        <div class=\"new_title\">" . $this->$titleCutMethod($post->post_title, $this->tA['title_cut_after'], "...") . "</div>
-                                        " . $show_date . "
-                                        " . $show_text . "
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
+                "<a style=\"display: block;\" class=\"new_holder\" href=\"" . get_permalink($post->ID) . "\"" . ($this->tA['open_links_in'] == "blank" ? " target=\"_blank\"" : "") . ">
+                    <table class=\"new_table\">
+                        <tr>
+                            " . $image . "
+                            <td class=\"content\" " . $content_style . ">
+                                <div class=\"content_holder\">
+                                    <div class=\"new_title\">" . $this->$titleCutMethod($post->post_title, $this->tA['title_cut_after'], "...") . "</div>
+                                    " . $show_date . "
+                                    " . $show_text . "
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
                 </a>";
                 $count_iter++;
             endforeach;
@@ -529,19 +527,17 @@ background-image: -ms-linear-gradient(270deg, #222 0%, #888 1px, #6C6C6C 1px, #6
             }
               
             $contentTemp[$i] = 
-                "<a href=\"" . $arrFeeds[$i]['link'] . "\"" . ($this->tA['open_links_in'] == "blank" ? " target=\"_blank\"" : "") . ">
-                    <div class=\"new_holder\">
-                        <table class=\"new_table\">
-                            <tr>
-                                " . $image . "
-                                <td class=\"content\" " . $content_style . ">
-                                    <div class=\"new_title\">" . $this->$titleCutMethod($arrFeeds[$i]['title'], $this->tA['title_cut_after'], "...") . "</div>
-                                    " . $show_date . "
-                                    " . $show_text . "
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
+                "<a style=\"display: block;\" class=\"new_holder\" href=\"" . $arrFeeds[$i]['link'] . "\"" . ($this->tA['open_links_in'] == "blank" ? " target=\"_blank\"" : "") . ">
+                    <table class=\"new_table\">
+                        <tr>
+                            " . $image . "
+                            <td class=\"content\" " . $content_style . ">
+                            <div class=\"new_title\">" . $this->$titleCutMethod($arrFeeds[$i]['title'], $this->tA['title_cut_after'], "...") . "</div>
+                                " . $show_date . "
+                                " . $show_text . "
+                           </td>
+                        </tr>
+                    </table>
                 </a>";
         }       
         $this->tA['actual_news_number'] = $i;
