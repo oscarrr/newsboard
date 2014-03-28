@@ -1,0 +1,350 @@
+
+/* NewsBoard Plugin Admin Panel CSS */
+
+.nbp_items {
+    width: 100%;
+    margin-bottom: 17px;
+    overflow: auto;
+    }
+.nbp_items .item {
+    margin-top: 15px;
+    margin-left: 2px;
+    background-color: #fafafa;
+    border: 1px solid #dedede;
+    border-radius: 5px;
+    float: left;
+    padding: 5px;
+    color: #888;
+    font-size: 16px;
+    line-height: 24px;
+    }
+.nbp_items .item:hover, .nbp_items .selected {
+    color: #ffffff;
+    background-color: #555555;
+    border: 1px solid #555555;   
+    }
+.testview_holder {
+    display: inline-block;
+    margin-top: 10px;
+}
+.nbp_pre_holder {
+    width: 100%; 
+    margin-right: 10px;   
+    position: relative;
+    }
+.nbp_pre_bgCover {
+    position: fixed;
+    top: 0px;
+    background: transparent;
+    background: rgba(255, 255, 255, 0.8);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#80000000, endColorstr=#80000000)";
+    filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=1, StartColorStr='#80000000', EndColorStr='#80000000');
+    display: none;
+    overflow: hidden;
+    }
+.nbp_pre_overlayBox {
+    width: 400px;
+    padding: 50px;
+    margin: 250px auto 0 auto;
+    position : relative;
+    background: #ffffff;
+    border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    display : none;
+    box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.25);
+    }
+.nbp_pre_text {
+    width: 400px;
+    margin-top: 30px;
+    color: #1b8be0;
+    text-align: center;
+    font-family: inherit;
+    }
+.nbp_pre_loader {
+    width: 208px;
+    height: 32px;
+    background-position: center;
+    background-repeat: no-repeat;
+    }
+.nbp_settings_holder {
+    width: 100%;
+    margin-top: 20px;
+    }
+.nbp_settings_holder .theme_picker {
+    width: 946px;
+    margin: 0 auto;
+    overflow: hidden;
+    }
+.nbp_settings_holder .theme_range {
+    width: 866px;
+    height: 426px;
+    position: relative;
+    overflow: hidden;
+    float: left;
+    }
+    .nbp_settings_holder .theme_slider {
+        height: 426px;
+        position: absolute;
+        float: left;
+        }
+        .nbp_settings_holder .theme {
+            width: 280px;
+            max-width: 280px;
+            height: 417px;
+            margin-top: 3px;
+            margin-left: 5px;
+            background-color: #fafafa;
+            border: 1px solid #dedede;
+            border-radius: 5px;
+            float: left;
+            }
+            .nbp_settings_holder .theme_lable {
+                width: 250px;
+                padding: 10px 10px 15px 20px;
+                position: relative;
+                color: #888;
+                font-size: 16px;
+                line-height: 24px;
+                }
+                .nbp_settings_holder .theme_lable input[type="radio"] {
+                    vertical-align: baseline;
+                    }
+                .nbp_settings_holder .override_btn,  .nbp_settings_holder .override_default{
+                    width: 81px;
+                    padding: 3px;
+                    top: -4px;
+                    right: 10px;
+                    position: absolute;
+                    color: #555;
+                    font-size: 9px;
+                    line-height: 9px;
+                    background-color: #ffffff;
+                    border: 1px solid #dedede;
+                    border-top-left-radius: 2px;
+                    border-top-right-radius: 2px;
+                    border-bottom-right-radius: 3px;
+                    border-bottom-left-radius: 3px;
+                    float: right;
+                    cursor: pointer;
+                    }
+            .nbp_settings_holder .theme_screenshot {
+                    width: 100%;
+                    height: 363px;
+                    background-position: top center;
+                    background-repeat: no-repeat;
+                    }
+    .nbp_settings_holder .left_arrow {
+        width: 40px;
+        height: 100%;
+        padding-top: 150px;
+        float: left;
+        }
+    .nbp_settings_holder .right_arrow {
+        width: 40px;
+        height: 100%;
+        padding-top: 150px;
+        float: left;
+        }
+    .nbp_settings_holder .left_arrow img, .nbp_settings_holder .right_arrow img {
+        cursor: pointer;
+        } 
+.nbp_settings_holder .custom {
+    margin-top: 10px;
+    clear: both;
+    }
+.nbp_settings_holder .custom_lable {
+    width: 80%;
+    height: 35px;
+    color: #888;
+    text-indent: 20px;
+    font-size: 16px;
+    line-height: 35px;
+    background-color: #fafafa;
+    border-top: 1px solid #dedede;
+    border-right: 1px solid #dedede;
+    border-left: 1px solid #dedede;
+    border-radius: 5px 5px 0 0;
+    }
+.nbp_settings {
+    width: 100%;
+    min-width: 1083px;
+    border-collapse: collapse;
+    }
+.nbp_settings tr {
+    height: 41px;
+    border: 1px solid #dedede;
+    }
+.nbp_settings .main_row td {
+    padding: 6px 0;
+    }
+    .nbp_settings .main_row .lable {
+        width: 40%;
+        font-weight: bold;
+        padding: 6px 10px 6px 30px;
+        }
+    .nbp_settings .main_row .cat_buttons {
+        line-height: 30px;
+        vertical-align: middle;
+        text-align: center;
+        }
+.nbp_settings .item_row input[type="checkbox"] {
+        margin: 0 20px;
+        }
+.nbp_settings .item_row .used {
+        width: 10px;
+        text-align: center;
+        font-weight: bold;
+        }
+.nbp_settings .item_row .names {
+        width: 250px;
+        text-align: center;
+        font-weight: bold;
+        padding: 6px 77px 6px 0;
+        }
+.nbp_settings .item_row .shortcodes {
+        text-align: center;
+        font-weight: bold;
+        padding: 6px 20px 6px 0;
+        }
+.nbp_settings .odd {
+    background-color: #eaeaea;
+    }
+.nbp_settings .go_pro_image {
+    vertical-align: middle;
+    }
+.nbp_settings .theme_row td {
+    height: 26px;
+    text-align: center;
+    line-height: 25px;
+    vertical-align: top;
+    padding: 8px 0;
+    background-color: #eaeaea;
+    border: 1px solid #dedede;
+    }
+    .nbp_settings .theme_row .lable {
+        width: 87px;
+        font-weight: bold;
+        vertical-align: middle;
+        }
+.nbp_settings .number_input {
+    width: 40px;
+    text-align: center;
+    }
+.nbp_settings .text_input {
+    width: 90%;
+    text-align: center;
+    }
+.nbp_settings .shortcode_input {
+    width: 300px;
+    text-align: center;
+    font-weight: normal;
+    }
+.nbp_settings .longtext_input {
+    width: 80%;
+    }
+.nbp_settings .color_input {
+    width: 70px;
+    text-align: center;
+    }
+.nbp_settings .no_left_padding {
+    width: 155px;
+    padding-left: 0;
+    text-align: right;
+    }
+.nbp_settings .cat_select {
+    width: 330px;
+    height: 134px !important;
+    padding: 10px;
+    margin: 3px 0;
+    }
+.nbp_settings .lables {
+    height: 18px;
+    }
+    .nbp_settings .lables td {
+        font-size: 10px;
+        text-align: center;
+        padding-top: 0;
+        padding-bottom: 0;
+        background-color: #fafafa;
+        border: 1px solid #dedede;
+        }
+    .nbp_settings .lables .bold {
+        font-family: Times New Roman;
+        font-weight: bold;
+        }
+    .nbp_settings .lables .italic {
+        font-family: Times New Roman;
+        font-style: italic;
+        }
+    .nbp_settings .lables .underline {
+        font-family: Times New Roman;
+        text-decoration: underline;
+        }
+.nbp_settings .theme_row .check {
+    text-align: center;
+    vertical-align: middle;
+    padding-left: 2px;
+    padding-right: 2px;
+    }
+
+.nbp_settings_holder .valid_error_holder {
+    width: 100%;
+    height: 0px;
+    position: relative;
+    }
+    .nbp_settings_holder .valid_error_holder .valid_error {
+        width: 96%;
+        height: auto;
+        min-height: 18px;
+        color: #ffffff;
+        font-size: 12px;
+        font-family: inherit;
+        text-align: center;
+        line-height:  18px;
+        text-shadow: 0px 1px 0px #ef0000;
+        padding: 0 2% 0 2%;
+        position:  absolute;
+        left: 0;
+        bottom: 9px;
+        background-color: #dd0000;
+        border: 1px solid red;
+        border-right-color: #dd0000;
+        border-top-left-radius:5px;
+        border-top-right-radius:5px;
+        float: left;
+        }
+.nbp_settings_holder textarea, .nbp_settings_holder input[type="text"], .nbp_settings_holder input[type="password"], .nbp_settings_holder input[type="file"], .nbp_settings_holder input[type="button"], .nbp_settings_holder input[type="reset"], .nbp_settings_holder input[type="email"], .nbp_settings_holder input[type="number"], .nbp_settings_holder input[type="search"], .nbp_settings_holder input[type="tel"], .nbp_settings_holder input[type="url"], .nbp_settings_holder select {
+    background-color: #fff;
+    border-color: #dfdfdf;
+    }
+.nbp_settings_holder textarea:focus, .nbp_settings_holder input[type="text"]:focus, .nbp_settings_holder input[type="password"]:focus, .nbp_settings_holder input[type="file"]:focus, .nbp_settings_holder input[type="button"]:focus, .nbp_settings_holder input[type="submit"]:focus, .nbp_settings_holder input[type="reset"]:focus, .nbp_settings_holder input[type="email"]:focus, .nbp_settings_holder input[type="number"]:focus, .nbp_settings_holder input[type="search"]:focus, .nbp_settings_holder input[type="tel"]:focus, .nbp_settings_holder input[type="url"]:focus, .nbp_settings_holder select:focus {
+    background-color: #fff;
+    border-color: #bbbbbb;
+    }
+.nbp_settings_holder input[name="nbp_license_key"] {
+    width: 200px;
+    }
+.nbp_settings_holder input[name="nbp_license_key"].invalid {
+    background-color: #FCC;
+    border: 1px solid #F99;
+    color: #F00;
+}
+.nbp_settings_holder .notes {
+    font-size: 90%;
+    font-weight: normal;
+    font-style: italic;
+    }
+.nbp_luxury_btn {
+    width: 209px;
+    height: 16px;
+    padding: 20px 0 19px 19px;
+    margin: 10px 0;
+    line-height: 0;
+    }  
+    .nbp_luxury_btn input {
+        padding: 0;
+        }  
+.nbp_submit_btn {
+    margin: 30px 0 8px 30px;
+    }
