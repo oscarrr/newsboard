@@ -487,7 +487,7 @@ background-image: -ms-linear-gradient(270deg, #222 0%, #888 1px, #6C6C6C 1px, #6
                 $img_padding = intval($this->tA['thumbnail_width'] * 0.1);
                 
                 $image = "<td class=\"image\" style=\"width: 1%; padding-left: " . $img_padding . "px; padding-right: " . $img_padding . "px; \">
-                        <div class=\"new_thumbnail\" style=\"width:" . $this->tA['thumbnail_width']. "px; height:" . $this->tA['thumbnail_height'] . "px; background: #fff url(" . $this->tA['loader_path'] . ") no-repeat center center; -webkit-background-size: " . $imagesize[0] . "px " . $imagesize[1] . "px; background-size: " . $imagesize[0] . "px " . $imagesize[1] . "px; border:" . $this->tA['image_border'] .";\"><img class=\"nbp_real_rss_img\" style=\"display: none;\" src=\"" . $arrFeeds[$i]['img'] . "\" alt=\"" . $post_title_cut . "\" /></div>
+                        <div class=\"new_thumbnail\" style=\"width:" . $this->tA['thumbnail_width']. "px; height:" . $this->tA['thumbnail_height'] . "px; background: #fff url(" . $this->tA['loader_path'] . ") no-repeat center center; -webkit-background-size: 32px 32px; background-size: 32px 32px; border:" . $this->tA['image_border'] .";\"><img class=\"nbp_real_rss_img\" style=\"display: none;\" src=\"" . $arrFeeds[$i]['img'] . "\" alt=\"" . $post_title_cut . "\" /></div>
                      </td>";
                 
                 $padding_right = max(max($this->tA['roundness_top_right'], $this->tA['roundness_bottom_right'])/2, 10);
