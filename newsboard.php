@@ -8,7 +8,7 @@
 
     Description: Post and RSS Scroller
 
-    Version: 1.2.1.1
+    Version: 1.2.2
 
     Author: NewsBoard Plugin 
 
