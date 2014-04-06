@@ -65,7 +65,7 @@ Lower versions and some other browsers might support some or none of the CSS3 pr
 
 == Changelog ==
 
-= 1.2.1.1 =
+= 1.2.2 =
 * Fixed image cache possible bug
 * Fixed preloader size bug
 
