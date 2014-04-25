@@ -1,9 +1,10 @@
 <?php
+
 /** 
     Plugin Name: NewsBoard FREE
     Plugin URI: http://newsboardplugin.com 
     Description: Post and RSS Scroller
-    Version: 1.2.3
+    Version: 1.2.4
     Author: NewsBoard Plugin 
     Author URI: http://newsboardplugin.com 
 */
@@ -20,9 +21,11 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
+
 require_once WP_PLUGIN_DIR . '/newsboard/newsboard-constants.php';
 require_once WP_PLUGIN_DIR . '/newsboard/default-settings.php';
 require_once WP_PLUGIN_DIR . '/newsboard/classes/nbpWidget.php';
 require_once WP_PLUGIN_DIR . '/newsboard/classes/nbpCore.php';
 require_once WP_PLUGIN_DIR . '/newsboard/classes/nbpInit.php';
+
 $nbp_app = new nbpInit(__FILE__);

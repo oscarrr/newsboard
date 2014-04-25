@@ -508,7 +508,7 @@ background-image: -ms-linear-gradient(270deg, #222 0%, #888 1px, #6C6C6C 1px, #6
                 
             if($this->tA['show_text'] == 'checked="checked"')
             {
-                $show_text = "<div class=\"new_text\">" . $this->$textCutMethod(strip_tags($arrFeeds[$i]['desc']), $this->tA['text_cut_after'], "<span class=\"read_more\">&nbsp;<a href=\"#\">" . $this->tA['read_more_string'] . "</a></span>") . "</div>";                              
+                $show_text = "<div class=\"new_text\">" . nl2br($this->$textCutMethod(strip_tags($arrFeeds[$i]['desc']), $this->tA['text_cut_after'], "<span class=\"read_more\">&nbsp;<a href=\"#\">" . $this->tA['read_more_string'] . "</a></span>")) . "</div>";                              
             }
               
             $contentTemp[$i] = 
