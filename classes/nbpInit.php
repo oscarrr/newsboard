@@ -94,11 +94,12 @@ class nbpInit extends nbpCore
     {
         global $wp_version;
         
-        $jquery_src = (version_compare('3.6', $wp_version) === 1) ? $GLOBALS['wp_scripts']->registered['jquery']->src : $GLOBALS['wp_scripts']->registered['jquery-core']->src;
-        
+        $wp_native_scripts = new WP_Scripts();
+        $jquery_src = (version_compare('3.6', $wp_version) === 1) ? $wp_native_scripts->registered['jquery']->src : $wp_native_scripts->registered['jquery-core']->src;
+
         wp_register_script( 'newsboard-jquery', $jquery_src );
-        wp_register_script( 'newsboard-jquery-ui-core', $GLOBALS['wp_scripts']->registered['jquery-ui-core']->src, array('newsboard-jquery') );
-        wp_register_script( 'newsboard-jquery-effects-core', $GLOBALS['wp_scripts']->registered['jquery-effects-core']->src, array('newsboard-jquery') );
+        wp_register_script( 'newsboard-jquery-ui-core', $wp_native_scripts->registered['jquery-ui-core']->src, array('newsboard-jquery') );
+        wp_register_script( 'newsboard-jquery-effects-core', $wp_native_scripts->registered['jquery-effects-core']->src, array('newsboard-jquery', 'newsboard-jquery-ui-core') );
         
         wp_enqueue_script( 'newsboard-jquery' );
         wp_enqueue_script( 'newsboard-jquery-ui-core' );
