@@ -383,17 +383,17 @@ class nbpCore
             case 'expired_key':
                 $licenseFieldClass = '';
                 $licenseModeMsg = 'Your key is valid.';
-                $licenseModeLink = '<a href="http://newsboardplugin.com/support/faq/#how-to-get-a-key" target="_blank">I don\'t have a key. How to get one?</a><br /><br /><a href="http://newsboardplugin.com/support/faq/#why-to-go-pro" target="_blank">Why to go PRO?</a>';
+                $licenseModeLink = '<a href="http://newsboardplugin.com/support/faq/#how-to-get-a-key" target="_blank">I don\'t have a key. How to get one?</a><br /><br><a href="http://newsboardplugin.com/support/faq/#why-to-go-pro" target="_blank">Why to go PRO?</a>';
                 break;
             case 'no_key':
                 $licenseFieldClass = '';
                 $licenseModeMsg = 'Enter your key below.';
-                $licenseModeLink = '<a href="http://newsboardplugin.com/support/faq/#how-to-get-a-key" target="_blank">I don\'t have a key. How to get one?</a><br /><br /><a href="http://newsboardplugin.com/support/faq/#why-to-go-pro" target="_blank">Why to go PRO?</a>';
+                $licenseModeLink = '<a href="http://newsboardplugin.com/support/faq/#how-to-get-a-key" target="_blank">I don\'t have a key. How to get one?</a><br /><br><a href="http://newsboardplugin.com/support/faq/#why-to-go-pro" target="_blank">Why to go PRO?</a>';
                 break;
             case 'wrong_key':
                 $licenseFieldClass = 'invalid';
                 $licenseModeMsg = 'Your key is invalid.<br />Please make sure you have typed it correctly.';
-                $licenseModeLink = '<a href="http://newsboardplugin.com/support/faq/#where-is-my-key" target="_blank">Where is my key?</a>';
+                $licenseModeLink = '<a href="http://newsboardplugin.com/support/faq/#where-is-my-key" target="_blank">Where is my key?</a><br><a href="https://newsboardplugin.com/support/" target="_blank">Get support</a>';
                 break;
         }
         
