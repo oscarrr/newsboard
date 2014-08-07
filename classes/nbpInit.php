@@ -73,7 +73,7 @@ class nbpInit extends nbpCore
     {
         $news_board_path_mce = trailingslashit(rtrim(WP_PLUGIN_URL, '/') . '/newsboard');
         $plugin_array['contextmenu'] = $news_board_path_mce . 'mce/contextmenu/editor_plugin.js';
-        $plugin_array['NewsBoard'] = $news_board_path_mce . '/js/editor_plugin.js';
+        $plugin_array['NewsBoard'] = $news_board_path_mce . 'js/editor_plugin.js';
         return $plugin_array;
     }
     
