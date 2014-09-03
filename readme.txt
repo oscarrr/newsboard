@@ -10,9 +10,11 @@ Newsboard is a jQuery Post and RSS feed auto-scroller. Latest posts, custom post
 
 == Description ==
 
-View [Live Demo](http://newsboardplugin.com/jquery-news-ticker-for-wordpress/ "Live Demo of NewsBoard - jQuery News Ticker for Wordpress") | Watch the [Youtube video](http://www.youtube.com/watch?feature=player_embedded&v=EcCQ3eWS3-Y "Youtube plugin video") | Follow us on [Twitter](https://twitter.com/NewsBoardPlugin "Follow NewsBoard on Twitter") | Find us on [Facebook](http://www.facebook.com/pages/NewsBoard-Plugin/333348490093559 "Find NewsBoard on Facebook")
+View [Live Demo](http://newsboardplugin.com/jquery-news-ticker-for-wordpress/ "Live Demo of NewsBoard - jQuery News Ticker for Wordpress") | Follow us on [Twitter](https://twitter.com/NewsBoardPlugin "Follow NewsBoard on Twitter") | Find us on [Facebook](http://www.facebook.com/pages/NewsBoard-Plugin/333348490093559 "Find NewsBoard on Facebook") | [Pineapplz Studio](http://pineapplz.com/ "Pineapplz Web Design Studio")
 
 NewsBoard is a highly customizable jQuery News Ticker that displays your posts or rss feed from other sites. You can easily set width, height, colors, rollover colors, date format, thumbnail sizes, fonts, transitions, speed and much more.
+
+[youtube https://www.youtube.com/watch?v=EcCQ3eWS3-Y]
 
 Works on all modern browsers  
 NewsBoard takes advantage of CSS3 features like border radius, gradients and text shadow, which are supported by all modern browsers. But those who don\'t, get visually simplified version.
