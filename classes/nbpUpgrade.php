@@ -7,7 +7,7 @@
  */
 class nbpUpgrade
 {
-    public $nbp_settings, $pluginOptName, $check_path, $upgrade_path, $mode, $last_date, $date_format;
+    public $nbp_settings, $pluginOptName, $check_path, $upgrade_path, $mode, $date_format;
     
     /**
      * Class construct. Var assigning and calling checkLicenseKey method if it's necessary
@@ -18,17 +18,12 @@ class nbpUpgrade
     public function __construct($pluginOptName, $check_path, $upgrade_path)
     {
         $this->date_format = 'Y-m-d H:i:s';
-        $check_time = '1728000'; //20 days in seconds
         $this->check_path = $check_path;
         $this->upgrade_path = $upgrade_path;
         $this->pluginOptName = $pluginOptName;
         
         //Option Array
-        $this->nbp_settings = get_option($pluginOptName);  
-        
-        $this->last_date = $this->getElements('last_date');
-        if(strtotime(date($date_format)) - strtotime($this->last_date) > $check_time || $this->last_date == '' || !is_numeric($this->last_date))
-            $this->checkLicenseKey();
+        $this->nbp_settings = get_option($pluginOptName);
             
         $this->mode = $this->getElements('mode');                     
     }
@@ -56,28 +51,6 @@ class nbpUpgrade
     }
     
     /**
-     * Checks the License Key and Updates Option Array from the given result
-     * @uses wp_remote_post() - WP function to POST data to Remote Servers
-     */
-    public function checkLicenseKey()
-    {
-        $key = $this->getElements('license_key');
-        if(!empty($key))
-        {
-            $request = wp_remote_post($this->check_path, array('body' => array('key' => $key)));
-            if (!is_wp_error($request) || wp_remote_retrieve_response_code($request) === 200)
-            {
-                $this->mode = $request['body'];
-                if($this->mode != 'good_key' || $this->mode != 'expired_key')    
-                    $this->setElements('last_date', date($this->date_format));
-                $this->setElements('mode', $this->mode);
-            }
-        }
-        else
-            $this->setElements('mode', 'no_key');
-    }
-    
-    /**
      * Checks the License Key upon Upgrade
      * @uses wp_remote_post() - WP function to POST data to Remote Servers
      * @return Boolean - true if key is valid
@@ -85,25 +58,45 @@ class nbpUpgrade
     public function checkUpgradeKey()
     {
         $key = $this->getElements('license_key');
+        
         if(!empty($key))
         {
-            $request = wp_remote_post($this->check_path, array('body' => array('upgrade_key' => $key)));
-            if (!is_wp_error($request) || wp_remote_retrieve_response_code($request) === 200)
+            $request = wp_remote_post($this->check_path, array('body' => array('key' => $key)));
+            
+            if(!is_wp_error($request) && (int) $request['response']['code'] === 200)
             {
                 $this->mode = $request['body'];
-                if($this->mode == 'good_key' || $this->mode == 'expired_key')
-                {
-                    return true;
-                }else{
-                    $this->setElements('mode', 'wrong_key');
-                    return false; 
-                }          
-            }else{
-                return false;
-            }   
-        }
-        else
-            $this->setElements('mode', 'no_key'); 
+                
+                if($this->mode == 'good_key' || $this->mode == 'expired_key')    
+                {   
+                    $this->setElements('mode', $this->mode);
+                    $this->upgradeMessage = sprintf(__('You have successfully activated %s'), 'NewsBoard PRO') . '!<META HTTP-EQUIV="refresh" CONTENT="3; URL=' . $_SERVER['REQUEST_URI'] . '">';
+                    
+                    return true;                    
+                }
+                elseif($this->mode == 'wrong_key')    
+                {   
+                    $this->setElements('mode', $this->mode);
+                    $this->upgradeMessage = __('Your key is invalid. Please make sure you have typed it correctly.');
+                } else {
+                    $this->upgradeMessage = __('No key answer was received.');
+                    $this->setElements('mode', 'error');
+                }
+            }
+            elseif(is_wp_error($request))
+            {
+                $this->upgradeMessage = $request->get_error_message();
+                $this->setElements('mode', 'error');
+            }
+            elseif($request['response']['code'] != 200)
+            {
+                $this->upgradeMessage = __('Activation server cannot be reached. Please make sure that NewsBoard server (newsboardplugin.com) is not blocked.');
+                $this->setElements('mode', 'error');
+            }
+        } else {
+            $this->setElements('mode', 'no_key');
+            $this->upgradeMessage = __('Please enter your key');
+        } 
     }
     
     /**

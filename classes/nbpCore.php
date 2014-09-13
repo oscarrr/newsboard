@@ -81,72 +81,69 @@ class nbpCore
     		if(isset($_POST['nbp_license_key']))
             {
                 $this->upgrade->setElements('license_key', $_POST['nbp_license_key']);
-                $this->upgrade->checkLicenseKey();
+                $this->upgrade->checkUpgradeKey();
                 $this->upgrade->mode = $this->upgrade->getElements('mode'); 
+                $this->changeMsgKey = $this->upgrade->upgradeMessage;
                 
                 if($this->upgrade->mode == 'good_key' || $this->upgrade->mode == 'expired_key')
                 {
-                    $changeMsgKey_ = '';
-                    
                     //UPGRADE TO PRO
                     $pluginFile = $this->pluginFolderName . '/' . $this->pluginFolderName . '.php';
             
                     if(is_plugin_active($pluginFile) && current_user_can('activate_plugins'))
                     {
-                        if(is_bool($this->upgrade->checkUpgradeKey()) && $this->upgrade->checkUpgradeKey() == true)
+                        //get zip file url
+                        $packageUrl = $this->upgrade->getUpgradePackage();
+                            
+                        //download the temporary file
+                        $temp_file = download_url($packageUrl);
+                            
+                        if ( !is_wp_error($temp_file) )
                         {
-                            //get zip file url
-                            $packageUrl = $this->upgrade->getUpgradePackage();
-                            
-                            //download the temporary file
-                            $temp_file = download_url($packageUrl);
-                            
-                            if ( !is_wp_error($temp_file) )
-                            {
-                                //Deactivate the plugin
-                                deactivate_plugins($pluginFile);
+                            //Deactivate the plugin
+                            deactivate_plugins($pluginFile);
                                 
-                                $zip_file = $temp_file . '.zip';
+                            $zip_file = $temp_file . '.zip';
                                 
-                                //rename .tmp to .zip
-                                rename($temp_file, $zip_file );
+                            //rename .tmp to .zip
+                            rename($temp_file, $zip_file );
                                 
-                                //needed by unzip_file()
-                                WP_Filesystem();
+                            //needed by unzip_file()
+                            WP_Filesystem();
                                 
-                                //unzip the file
-                                $unzipped = unzip_file($zip_file, WP_PLUGIN_DIR);
+                            //unzip the file
+                            $unzipped = unzip_file($zip_file, WP_PLUGIN_DIR);
                                 
-                                if(is_bool($unzipped) && $unzipped == true)
-                                {   
-                                    //remove zip file
-                                    unlink($zip_file);
+                            if(is_bool($unzipped) && $unzipped == true)
+                            {   
+                                //remove zip file
+                                unlink($zip_file);
                                      
-                                    //activate the plugin
-                                    activate_plugins($this->pluginFolderName . '-pro/' . $this->pluginFolderName . '-pro.php'); 
+                                //activate the plugin
+                                activate_plugins($this->pluginFolderName . '-pro/' . $this->pluginFolderName . '-pro.php'); 
                                     
-                                    wp_redirect(admin_url() . 'admin.php?page=nbpCore.php');
-                                    exit;
-                                }else{
-                                    if(is_wp_error( $unzipped ))
-                                        $changeMsgKey_ = 'Error: ' . implode('<br/>Error: ', $unzipped->get_error_messages());
-                                    else
-                                        $changeMsgKey_ = 'Error: Unzipping filed.';
+                                wp_redirect(admin_url() . 'admin.php?page=nbpCore.php');
+                                exit;
+                                
+                            } else {
+                                
+                                if(is_wp_error( $unzipped ))
+                                    $this->changeMsgKey = 'Error: ' . implode('<br/>Error: ', $unzipped->get_error_messages());
+                                else
+                                    $this->changeMsgKey = 'Error: Unzipping filed.';
                                         
-                                        activate_plugins($pluginFile);
-                                }
-                            }else{
-                                $changeMsgKey_ = 'Error: ' . implode('<br/>Error: ', $temp_file->get_error_messages());
+                                activate_plugins($pluginFile);
                             }
+                            
+                        } else {
+                                $this->changeMsgKey = 'Error: ' . implode('<br/>Error: ', $temp_file->get_error_messages());
                         }
                     }
-                    
-                    $this->changeMsgKey = '<br /><div id="message" class="updated fade"><p><strong>' . __( $changeMsgKey_ ) . '</strong></p></div>';
                 }
+                
+                $this->changeMsgKey = '<br /><div id="message" class="error fade"><p><strong>' . __( $this->changeMsgKey ) . '</strong></p></div>';
             }
-        }
-        
-        else
+        } else
             $this->changeMsgKey = '';
             
         $this->app->getElements();
@@ -376,28 +373,25 @@ class nbpCore
                 <div class="icon32" id="icon-ms-admin"><br/></div><h2>NewsBoard Upgrade</h2>';
         echo $this->changeMsgKey;
         $tpl_upgrade = new nbpTemplate();
-        $mode = 'no_key';
+        
         switch($this->upgrade->mode)
         {
             case 'good_key':
             case 'expired_key':
                 $licenseFieldClass = '';
-                $licenseModeMsg = 'Your key is valid.';
                 $licenseModeLink = '<a href="http://newsboardplugin.com/support/faq/#how-to-get-a-key" target="_blank">I don\'t have a key. How to get one?</a><br /><br><a href="http://newsboardplugin.com/support/faq/#why-to-go-pro" target="_blank">Why to go PRO?</a>';
                 break;
             case 'no_key':
                 $licenseFieldClass = '';
-                $licenseModeMsg = 'Enter your key below.';
                 $licenseModeLink = '<a href="http://newsboardplugin.com/support/faq/#how-to-get-a-key" target="_blank">I don\'t have a key. How to get one?</a><br /><br><a href="http://newsboardplugin.com/support/faq/#why-to-go-pro" target="_blank">Why to go PRO?</a>';
                 break;
             case 'wrong_key':
                 $licenseFieldClass = 'invalid';
-                $licenseModeMsg = 'Your key is invalid.<br />Please make sure you have typed it correctly.';
                 $licenseModeLink = '<a href="http://newsboardplugin.com/support/faq/#where-is-my-key" target="_blank">Where is my key?</a><br><a href="https://newsboardplugin.com/support/" target="_blank">Get support</a>';
                 break;
         }
         
-        $tpl_upgrade->assign(array('license_key' => $this->upgrade->getElements('license_key'), 'license_key_class' => $licenseFieldClass, 'license_mode' => $licenseModeMsg, 'license_mode_link' => $licenseModeLink));
+        $tpl_upgrade->assign(array('license_key' => $this->upgrade->getElements('license_key'), 'license_key_class' => $licenseFieldClass, 'license_mode_link' => $licenseModeLink));
         $tpl_upgrade->display($this->pluginPathFull . "admin/newsboard-upgrade.tpl");
         
         echo '</div>';
