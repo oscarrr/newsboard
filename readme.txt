@@ -6,7 +6,7 @@ Requires at least: 3.3
 Tested up to: 4.0
 Stable tag: 1.2.8
 
-Newsboard is a jQuery Post and RSS feed auto-scroller. Latest posts, custom posts, most commented posts, posts from specific categories and more options can be set.
+Newsboard is a jQuery Post and RSS feed auto-scroller. Latest posts, custom posts, most commented posts, posts from specific categories and more.
 
 == Description ==
 
