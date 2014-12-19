@@ -293,7 +293,6 @@ background-image: -ms-linear-gradient(270deg, #222 0%, #888 1px, #6C6C6C 1px, #6
                     add_filter('excerpt_length', array($this, 'customExcerptLength'), 999);
                     add_filter('excerpt_more', array($this, 'newExcerptMore'), 999);
                 
-                    
                     if($this->tA['text_from'] == 'text')
                     {                
                         $content = get_the_excerpt();
@@ -310,7 +309,11 @@ background-image: -ms-linear-gradient(270deg, #222 0%, #888 1px, #6C6C6C 1px, #6
                         if($textCutMethod == 'symbolsCut')
                                 $excerpt = $this->symbolsCut($excerpt, $this->tA['text_cut_after'], $this->newExcerptMore());
                         $show_text = "<div class=\"new_text\">" . $excerpt . "</div>";                   
-                    }                              
+                    }
+
+                    remove_filter('excerpt_length', array($this, 'customExcerptLength'), 999);
+                    remove_filter('excerpt_more', array($this, 'newExcerptMore'), 999);
+                                              
                 }
                 
                 $contentTemp[$count_iter] = 
