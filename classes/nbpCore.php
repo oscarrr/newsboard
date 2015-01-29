@@ -113,26 +113,56 @@ class nbpCore
                                 
                             //unzip the file
                             $unzipped = unzip_file($zip_file, WP_PLUGIN_DIR);
-                                
-                            if(is_bool($unzipped) && $unzipped == true)
+                            
+                            if ( is_bool( $unzipped ) && $unzipped == true )
                             {   
                                 //remove zip file
-                                unlink($zip_file);
-                                     
-                                //activate the plugin
-                                activate_plugins($this->pluginFolderName . '-pro/' . $this->pluginFolderName . '-pro.php'); 
+                                unlink( $zip_file );
+                                
+                                //rewrite the cache to initialize the pro version
+                                $proVersionSlug = $this->slug . '-pro';
+                                $proVersionInfo = get_plugins( '/' . $proVersionSlug );
+                                $proVersionPath = $proVersionSlug . '/' . $proVersionSlug . '.php';
+                                
+                                
+                                $proVersionInfo = isset( $proVersionInfo[$proVersionSlug . '.php'] ) ? $proVersionInfo[$proVersionSlug . '.php'] : null;
                                     
-                                wp_redirect(admin_url() . 'admin.php?page=nbpCore.php');
-                                exit;
+                                if ( is_null( $proVersionInfo ) )
+                                {
+                                    wp_redirect( admin_url() . 'plugins.php' );
+                                    exit;
+                                }
+                                
+                                $cache_plugins = wp_cache_get( 'plugins', 'plugins' );
+
+                                if ( !empty( $cache_plugins ) )
+                                {
+                                    $cache_plugins[''][$proVersionPath] = $proVersionInfo;
+                                    wp_cache_set( 'plugins', $cache_plugins, 'plugins' );
+                                }
+                                
+                                
+                                //activate the plugin
+                                $activationResult = activate_plugins( $this->pluginFolderName . '-pro/' . $this->pluginFolderName . '-pro.php' ); 
+                                 
+                                if ( is_wp_error( $activationResult ) )
+                                {
+                                    $this->changeMsgKey = 'We couldn\'t activate the plugin, you should do it manually!';
+                                } 
+                                else
+                                {
+                                    wp_redirect(admin_url() . 'admin.php?page=nbpCore.php');
+                                    exit;
+                                }
                                 
                             } else {
                                 
-                                if(is_wp_error( $unzipped ))
-                                    $this->changeMsgKey = 'Error: ' . implode('<br/>Error: ', $unzipped->get_error_messages());
+                                if( is_wp_error( $unzipped ) )
+                                    $this->changeMsgKey = 'Error: ' . implode( '<br/>Error: ', $unzipped->get_error_messages() );
                                 else
                                     $this->changeMsgKey = 'Error: Unzipping filed.';
                                         
-                                activate_plugins($pluginFile);
+                                activate_plugins( $pluginFile );
                             }
                             
                         } else {
