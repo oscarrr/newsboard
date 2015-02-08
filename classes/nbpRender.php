@@ -1,7 +1,7 @@
 <?php
 /**
  * The Class that builds the ticker nest values for the template file
- * @copyright (c) 2014, NewsBoard Plugin
+ * @copyright (c) 2015, NewsBoard Plugin
  * @package WordPress
  * @subpackage NewsBoard Plugin FREE
  */
@@ -437,7 +437,7 @@ background-image: -ms-linear-gradient(270deg, #222 0%, #888 1px, #6C6C6C 1px, #6
                 $enclosure = end($enclosures);
                 $thumbs = is_object($enclosure) ? $enclosure->get_thumbnails() : null;
                 
-                if(is_object($enclosure) == true && ($enclosure->get_type() == 'image/jpeg' || $enclosure->get_type() == 'image/jpg' || $enclosure->get_type() == 'image/gif' || $enclosure->get_type() == 'image/png'|| $enclosure->get_medium() == 'image'))
+                if(is_object($enclosure) == true && ($enclosure->get_type() == 'image/jpeg' || $enclosure->get_type() == 'image/jpg' || $enclosure->get_type() == 'image/gif' || $enclosure->get_type() == 'image/png' || $enclosure->get_medium() == 'image' || in_array( end( explode( '.', strtok( $enclosure->get_link(), '?' ) ) ), array( 'jpeg', 'jpg', 'gif', 'png' ) ) ) )
                     $img = (string) trim($enclosure->get_link());
                 elseif(is_array($thumbs) && count($thumbs) > 0)
                 {

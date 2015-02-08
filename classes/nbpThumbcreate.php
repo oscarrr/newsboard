@@ -1,7 +1,7 @@
 <?php
 /**
  * The Class that Creates Thumbnails for IE
- * @copyright (c) 2014, NewsBoard Plugin
+ * @copyright (c) 2015, NewsBoard Plugin
  * @package WordPress
  * @subpackage NewsBoard Plugin FREE
  */

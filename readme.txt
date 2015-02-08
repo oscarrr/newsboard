@@ -4,7 +4,7 @@ Donate link: https://newsboardplugin.com
 Tags: news slider, rss reader, news ticker, latest posts, jquery post scroller, news scroller, rss feed, rss, news reader, javascript scroller, most commented posts, top commented posts, multiple scrollers, most commented posts, last updated posts, updated posts, rss fetcher, rss news scroller, customizable scroller, themed scroller, image scroller, news with thumbnail scroller, autoscroll, news autoscroll, rss autoscroll, flexible rss reader, flexible news ticker, customizable news, custom posts, custom post scroller, autoscroller
 Requires at least: 3.3
 Tested up to: 4.1
-Stable tag: 1.2.10
+Stable tag: 1.2.11
 
 Newsboard is a jQuery Post and RSS feed auto-scroller. Latest posts, custom posts, most commented posts, posts from specific categories and more.
 
@@ -65,6 +65,9 @@ Users will get the full visual version of NewsBoard in the following browsers:
 Lower versions and some other browsers might support some or none of the CSS3 properties. That means they will display visually simplified version if the plugin.
 
 == Changelog ==
+
+= 1.2.11 =
+* Fixed missing images in some feeds with poor syntax
 
 = 1.2.10 =
 * Upgrade process fix

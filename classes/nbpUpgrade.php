@@ -1,7 +1,7 @@
 <?php
 /**
  * Upgrade class. Performs checks for the license key and downloads the new version
- * @copyright (c) 2014, NewsBoard Plugin
+ * @copyright (c) 2015, NewsBoard Plugin
  * @package WordPress
  * @subpackage NewsBoard Plugin FREE
  */
