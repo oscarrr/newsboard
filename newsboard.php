@@ -4,7 +4,7 @@
     Plugin Name: NewsBoard FREE
     Plugin URI: http://newsboardplugin.com 
     Description: Post and RSS Scroller
-    Version: 1.2.11
+    Version: 1.2.12
     Author: NewsBoard Plugin 
     Author URI: http://newsboardplugin.com 
 */

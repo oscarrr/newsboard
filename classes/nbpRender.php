@@ -181,19 +181,41 @@ background-image: -ms-linear-gradient(270deg, #222 0%, #888 1px, #6C6C6C 1px, #6
      * @param String $dots - Read more string
      * @return String - Cutted text
      */
-    private function symbolsCut($string, $limit, $dots)
+    private function symbolsCut( $string, $limit, $dots )
     {
+        $string = htmlspecialchars_decode( $string );
         
-        $string = htmlspecialchars_decode($string);
-        if(mb_strlen($string, 'UTF-8') > $limit) 
-        {
-            $subex = mb_substr($string, 0, $limit+1, 'UTF-8');
-            if(mb_substr($subex, $limit, $limit+1, 'UTF-8') != " ")
+        if ( function_exists( 'mb_strlen' ) )
+            $length = mb_strlen( $string, 'UTF-8' );
+        else
+            $length = strlen( $string );
+            
+        if ( $length > $limit ) 
+        {   
+            if ( function_exists( 'mb_substr' ) )
+                $subex = mb_substr( $string, 0, $limit+1, 'UTF-8' );
+            else
+                $subex = substr( $string, 0, $limit+1 );
+            
+            if ( function_exists( 'mb_substr' ) )
+                $word_cut = mb_substr( $subex, $limit, $limit+1, 'UTF-8' ) != " ";
+            else
+                $word_cut = substr( $subex, $limit, $limit+1 ) != " ";  
+            
+            if( $word_cut )
             {
                 $exwords = explode(' ', $subex);
                 $index_last_word = count($exwords) - 1;
-                $last_word_length = mb_strlen($exwords[$index_last_word], 'UTF-8');
-                $subex = mb_substr($subex, 0, $limit - $last_word_length, 'UTF-8');
+                
+                if ( function_exists( 'mb_strlen' ) )
+                    $last_word_length = mb_strlen( $exwords[$index_last_word], 'UTF-8' );
+                else
+                    $last_word_length = strlen( $exwords[$index_last_word] );
+                
+                if ( function_exists( 'mb_substr' ) )    
+                    $subex = mb_substr($subex, 0, $limit - $last_word_length, 'UTF-8');
+                else
+                    $subex = substr($subex, 0, $limit - $last_word_length);
             } 
             return $subex . $dots;
         } 

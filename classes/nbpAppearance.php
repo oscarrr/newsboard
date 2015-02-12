@@ -92,7 +92,11 @@ class nbpAppearance
         
         for($i=0; $i<count($nbp_appearance_radioboxes); $i++)
         {
-            $dynamic_element = str_replace(" ", "_", mb_strtolower($this->nbp_options_appearance[$nbp_appearance_radioboxes[$i]], 'UTF-8'));
+            if ( function_exists( 'mb_strtolower' ) )
+                $dynamic_element = str_replace(" ", "_", mb_strtolower($this->nbp_options_appearance[$nbp_appearance_radioboxes[$i]], 'UTF-8'));
+            else
+                $dynamic_element = str_replace(" ", "_", strtolower($this->nbp_options_appearance[$nbp_appearance_radioboxes[$i]]));
+                
             $this->nbp_options_appearance[$nbp_appearance_radioboxes[$i].'_'.$dynamic_element] = 'checked="checked"';
         } 
     }
