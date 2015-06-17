@@ -3,14 +3,14 @@ Contributors: NewsBoard Plugin Team
 Donate link: https://newsboardplugin.com
 Tags: news slider, rss reader, news ticker, latest posts, jquery post scroller, news scroller, rss feed, rss, news reader, javascript scroller, most commented posts, top commented posts, multiple scrollers, most commented posts, last updated posts, updated posts, rss fetcher, rss news scroller, customizable scroller, themed scroller, image scroller, news with thumbnail scroller, autoscroll, news autoscroll, rss autoscroll, flexible rss reader, flexible news ticker, customizable news, custom posts, custom post scroller, autoscroller
 Requires at least: 3.3
-Tested up to: 4.1
+Tested up to: 4.2.2
 Stable tag: 1.2.12
 
 Newsboard is a jQuery Post and RSS feed auto-scroller. Latest posts, custom posts, most commented posts, posts from specific categories and more.
 
 == Description ==
 
-View [Live Demo](http://newsboardplugin.com/jquery-news-ticker-for-wordpress/ "Live Demo of NewsBoard - jQuery News Ticker for Wordpress") | Follow us on [Twitter](https://twitter.com/NewsBoardPlugin "Follow NewsBoard on Twitter") | Find us on [Facebook](http://www.facebook.com/pages/NewsBoard-Plugin/333348490093559 "Find NewsBoard on Facebook") | [Pineapplz Studio](http://pineapplz.com/ "Pineapplz Web Design Studio")
+View [Live Demo](http://newsboardplugin.com/jquery-news-ticker-for-wordpress/ "Live Demo of NewsBoard - jQuery News Ticker for Wordpress") | Follow us on [Twitter](https://twitter.com/NewsBoardPlugin "Follow NewsBoard on Twitter") | Find us on [Facebook](http://www.facebook.com/pages/NewsBoard-Plugin/333348490093559 "Find NewsBoard on Facebook")
 
 NewsBoard is a highly customizable jQuery News Ticker that displays your posts or rss feed from other sites. You can easily set width, height, colors, rollover colors, date format, thumbnail sizes, fonts, transitions, speed and much more.
 
