@@ -191,7 +191,7 @@ class nbpCore
         }
             
         $this->main->getElements();
-        $this->render = new nbpRender($this->app->nbp_options_appearance + $this->main->nbp_options_main, $this->pluginPath, $this->getPluginVer());
+        $this->render = new nbpRender($this->app->nbp_options_appearance + $this->main->nbp_options_main, $this->pluginPathFull, $this->getPluginVer());
         $this->render->doTheMagic();
         
         if($this->flag_app_update == 1 || $this->flag_main_update == 1)
